@@ -1,0 +1,24 @@
+<!-- navbar design -->
+<h3>网站导航设计</h3>
+<%= simple_form_for [:admin, @site] do |f|  %>
+  <%= f.simple_fields_for :navbar do |n| %>
+    <%= n.input :avatar, as: :file, label: "网站logo" %>
+    <%= n.input :site_menu1, label: "菜单名称" %>
+    <%= n.input :site_menu2, label: "菜单名称" %>
+    <%= n.input :site_menu3, label: "菜单名称" %>
+    <%= n.input :site_menu4, label: "菜单名称" %>
+    <%= f.button :submit, "提 交", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+
+<!-- footer design -->
+<h3>网站footer设计</h3>
+<%= simple_form_for [:admin, @site] do |f|  %>
+  <%= f.simple_fields_for :footer do |n| %>
+    <%= n.input :avatar, as: :file, label: "公司logo" %>
+    <%= n.input :company_number,    label: "公司电话" %>
+    <%= n.input :company_address,   label: "公司地址" %>
+    <%= n.input :site_copyright,    label: "版权声明" %>
+    <%= f.button :submit, "提 交", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
