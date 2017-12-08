@@ -2,14 +2,16 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+     user ||= User.new
      if user.role == 'super_admin'
-       can :manager, :all
+       can :manage, :all
      elsif user.role == 'admin'
-       can :manager, Site
-       can :manager, Navbar
-       can :manager, Footer
+       can :manage, Site
+       can :manage, Navbar
+       can :manage, Footer
+       can :read, :all
      elsif
        can :read, Site
-     end 
+     end
   end
 end
