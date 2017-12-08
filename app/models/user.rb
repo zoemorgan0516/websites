@@ -38,8 +38,10 @@ class User
   ## 使用的属性
   # 管理员姓名
   field :user_name,              type: String
+  validates :user_name, presence: true
   # 管理员管理的站点域名
   field :site_url,              type: String
+  validates :site_url, presence: true
 
 
 
