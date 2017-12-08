@@ -1,0 +1,11 @@
+<%= simple_form_for @user do |f| %>
+    <%= f.input :user_name,                label: "站点管理员姓名" %>
+    <%= f.input :email,                    label: "站点管理员邮箱" %>
+    <%= f.input :password,                 label: "登录密码" %>
+    <%= f.input :password_confirmation,    label: "确认登录密码" %>
+    <div class="line line-dashed b-b line-lg pull-in"></div>
+    <div class="col-sm-10 col-sm-offset-2">
+        <%= f.button :submit, "提 交", class: "btn btn-primary" %>
+        <%= link_to "返 回", users_path, class: "btn btn-default" %>
+    </div>
+<% end %>
