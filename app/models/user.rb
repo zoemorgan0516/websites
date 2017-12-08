@@ -35,5 +35,6 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
+  # 关联关系
   has_one :site
 end
