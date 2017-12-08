@@ -3,6 +3,14 @@
   <td><%= user.email %></td>
   <td><%= user.site_url %></td>
   <td>
+    <% if user.sites.find_by(user: user)%>
+      <label>此网站已激活</label>
+      <%= link_to("取消激活站点", unfavorite_user_path(user), method: :put, class: "btn btn-xs btn-primary")%>
+    <% else %>
+      <%= link_to("激活站点", favorite_user_path(user), method: :put, class: "btn btn-xs btn-primary")%>
+    <% end %>
+  </td>
+  <td>
     <%= link_to("编辑", edit_user_path(user), class: "btn btn-xs btn-primary")%>|
     <%= link_to("删除", user_path(user), method: :delete, class: "btn btn-xs btn-primary")%>
   </td>

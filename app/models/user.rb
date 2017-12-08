@@ -44,5 +44,15 @@ class User
 
 
   ## 关联关系
-  has_one :site
+  has_many :sites
+
+  ## 方法
+
+  def favorite
+    self.sites.create(site_url: self.site_url)
+  end
+
+  def unfavorite
+    self.sites.destroy_all
+  end
 end

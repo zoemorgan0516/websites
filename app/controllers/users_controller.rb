@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
    before_action :authenticate_user!
-   before_action :set_user, only: [:edit, :update, :destroy, :show]
+   before_action :set_user, only: [:edit, :update, :destroy, :show, :favorite, :unfavorite]
    layout 'admin'
    def index
       @users = User.all
@@ -39,6 +39,20 @@ class UsersController < ApplicationController
      redirect_to users_path
    end
 
+   def favorite
+     if !@user.sites.find_by(user: @user)
+       @user.favorite
+       redirect_to users_path
+     end
+   end
+
+   def unfavorite
+     if @user.sites.find_by(user: @user)
+       @user.unfavorite
+       redirect_to users_path
+     end
+   end
+
    private
 
    def set_user
@@ -50,6 +64,6 @@ class UsersController < ApplicationController
    end
 
    def set_title
-    @title = "站点管理员信息"
+     @title = "站点管理员信息"
    end
 end
