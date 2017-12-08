@@ -1,3 +1,25 @@
-<% @sites.each do |site| %>
-  <%= site.site_url%>
-<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    站点生成
+  <div class="table-responsive">
+    <table class="table table-striped b-t b-light">
+    <thead>
+      <tr>
+        <th>站点名称</th>
+        <th>站点域名</th>
+        <th>站点管理员姓名</th>
+        <th>站点管理员邮箱</th>
+        <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render(@sites) %>
+      </tbody>
+    </table>
+  </div>
+
+<footer class="panel-footer">
+  <%= render partial: "shared/admin/paginate", locals: { object: @sites } %>
+</footer>
+
+</div>
