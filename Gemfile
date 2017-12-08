@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# mongoid
+# mongoid框架
 gem 'mongoid'
 
 # 套版
@@ -39,9 +39,15 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise'
 
+
 # 分页插件
 gem 'kaminari'
 gem 'kaminari-mongoid'
+
+# 图片云存储
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'carrierwave-upyun'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

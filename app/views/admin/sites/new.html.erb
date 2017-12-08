@@ -1,0 +1,5 @@
+<%= simple_form_for [:admin, @site] do |f|  %>
+  <%= f.input :site_name,  label: "网站名称" %>
+  <%= f.input :site_url, label: "site_url" %>
+  <%= f.button :submit, "提 交", class: "btn btn-primary" %>
+<% end %>

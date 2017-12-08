@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :sites
+    resources :sites do      
+      resources :navbar
+    end
   end
   root "welcome#index"
 end

@@ -12,5 +12,6 @@ class Site
 
   # 关联关系
   belongs_to :user
+  has_one    :navbar
 
 end

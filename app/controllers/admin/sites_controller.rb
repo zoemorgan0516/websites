@@ -24,7 +24,7 @@ class Admin::SitesController < ApplicationController
   def set_site
     @site = Site.find(params[:id])
   end
-
+  
   def site_params
     params.require(:site).permit(:site_name, :site_url)
   end
