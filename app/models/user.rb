@@ -42,6 +42,10 @@ class User
   # 管理员管理的站点域名
   field :site_url,              type: String
   validates :site_url, presence: true
+  # 管理员角色
+  field :role,                  type: String
+  validates :role, presence: true
+  ROLES = [:super_admin, :admin]
 
 
 

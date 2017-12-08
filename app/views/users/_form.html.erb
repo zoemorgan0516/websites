@@ -1,5 +1,6 @@
 <%= simple_form_for @user do |f| %>
     <%= f.input :user_name,                label: "站点管理员姓名" %>
+    <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
     <%= f.input :email,                    label: "站点管理员邮箱" %>
     <%= f.input :site_url,                  label: "站点域名" %>
     <%= f.input :password,                 label: "登录密码" %>
