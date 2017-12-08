@@ -1,6 +1,7 @@
 <tr>
   <td><%= user.user_name %></td>
   <td><%= user.email %></td>
+  <td><%= user.site_url %></td>
   <td>
     <%= link_to("编辑", edit_user_path(user), class: "btn btn-xs btn-primary")%>|
     <%= link_to("删除", user_path(user), method: :delete, class: "btn btn-xs btn-primary")%>

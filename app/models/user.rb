@@ -36,7 +36,11 @@ class User
   # field :locked_at,       type: Time
 
   ## 使用的属性
+  # 管理员姓名
   field :user_name,              type: String
+  # 管理员管理的站点域名
+  field :site_url,              type: String
+
 
 
   ## 关联关系

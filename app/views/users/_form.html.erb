@@ -1,6 +1,7 @@
 <%= simple_form_for @user do |f| %>
     <%= f.input :user_name,                label: "站点管理员姓名" %>
     <%= f.input :email,                    label: "站点管理员邮箱" %>
+    <%= f.input :site_url,                  label: "站点域名" %>
     <%= f.input :password,                 label: "登录密码" %>
     <%= f.input :password_confirmation,    label: "确认登录密码" %>
     <div class="line line-dashed b-b line-lg pull-in"></div>
