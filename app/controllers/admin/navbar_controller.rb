@@ -16,7 +16,7 @@ class Admin::NavbarController < ApplicationController
   end
 
   def navbar_params
-    params.require(:navbar).permit(:site_logo, :site_menu1, :site_menu2, :site_menu3, :site_menu4)
+    params.require(:navbar).permit(:avatar, :site_menu1, :site_menu2, :site_menu3, :site_menu4)
   end
 
 end

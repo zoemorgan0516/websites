@@ -16,7 +16,7 @@ class Admin::FooterController < ApplicationController
   end
 
   def footer_params
-    params.require(:footer).permit(:footer_logo, :company_number, :company_address, :site_copyright)
+    params.require(:footer).permit(:avatar, :company_number, :company_address, :site_copyright)
   end
 
 end

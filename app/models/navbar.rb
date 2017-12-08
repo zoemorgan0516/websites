@@ -3,8 +3,8 @@ class Navbar
   include Mongoid::Timestamps
 
   # 站点logo
-  field :site_logo,       type: String
-  validates :site_logo,   :presence => true
+  mount_uploader :avatar, AvatarUploader
+  validates :avatar,   :presence => true
   # 站点右侧菜单
   field :site_menu1,      type: String
   validates :site_menu1,  :presence => true
