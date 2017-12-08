@@ -39,6 +39,11 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise'
 
+
+# 分页插件
+gem 'kaminari'
+gem 'kaminari-mongoid'
+
 # 图片云存储
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'

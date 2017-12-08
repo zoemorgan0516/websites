@@ -35,6 +35,24 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
-  # 关联关系
-  has_one :site
+  ## 使用的属性
+  # 管理员姓名
+  field :user_name,              type: String
+  # 管理员管理的站点域名
+  field :site_url,              type: String
+
+
+
+  ## 关联关系
+  has_many :sites
+
+  ## 方法
+
+  def favorite
+    self.sites.create(site_url: self.site_url)
+  end
+
+  def unfavorite
+    self.sites.destroy_all
+  end
 end

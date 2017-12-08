@@ -1,3 +1,12 @@
+<div class="panel panel-default">
+    <div class="panel-heading font-bold">
+        站点页面设计
+    </div>
+    <div class="panel-body">
+      <%= render "form", site: @site %>
+    </div>
+</div>
+
 <!-- navbar design -->
 <h3>网站导航设计</h3>
 <%= simple_form_for [:admin, @site] do |f|  %>
@@ -12,7 +21,6 @@
 <% end %>
 
 <!-- footer design -->
-<h3>网站footer设计</h3>
 <%= simple_form_for [:admin, @site] do |f|  %>
   <%= f.simple_fields_for :footer do |n| %>
     <%= n.input :avatar, as: :file, label: "公司logo" %>
@@ -22,3 +30,4 @@
     <%= f.button :submit, "提 交", class: "btn btn-primary" %>
   <% end %>
 <% end %>
+
