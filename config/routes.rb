@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :navbars
   devise_for :users
   ## 后台权限管理
   # 账号管理
