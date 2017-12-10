@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :footers
+  end
+  namespace :admin do
+    resources :classes
+  end
+  namespace :admin do
+    resources :navbars
+  end
   resources :navbars
   devise_for :users
   ## 后台权限管理
