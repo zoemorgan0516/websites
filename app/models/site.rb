@@ -12,6 +12,7 @@ class Site
 
   # 关联关系
   belongs_to :user
-  has_one    :navbar
+  has_many   :navbars
+  has_many   :footers
 
 end

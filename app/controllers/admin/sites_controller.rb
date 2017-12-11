@@ -9,14 +9,14 @@ class Admin::SitesController < ApplicationController
   end
 
   def edit
+    @navbar = @site.navbars.new
   end
 
   def update
-    if @site.update(site_params)
-      redirect_to admin_sites_path
-    else
-      render :edit
-    end
+    @navbars = @site.navbars
+    @navbar = @site.navbars.create
+    @site.update(site_params)
+    redirect_to admin_sites_path
   end
 
   private
@@ -24,7 +24,7 @@ class Admin::SitesController < ApplicationController
   def set_site
     @site = Site.find(params[:id])
   end
-  
+
   def site_params
     params.require(:site).permit(:site_name, :site_url)
   end

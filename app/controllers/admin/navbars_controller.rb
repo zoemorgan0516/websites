@@ -2,9 +2,18 @@ class Admin::NavbarsController < ApplicationController
   before_action :authenticate_user!
   layout 'admin'
 
-  def new
+  def create
+    puts "========"
     @site = Site.find(params[:site_id])
-    @navbar = @site.navbar.new
+    puts "**********"
+    @site
+    puts "****&&&&&&&"
+    @navbar = @site.navbars.new(navbar_params)
+    @navbar.save
+    puts "========"
+    puts @navbar.id
+    puts "**********"
+    redirect_to navbars_path
   end
 
 

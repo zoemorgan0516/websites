@@ -4,7 +4,7 @@ class Navbar
 
   # 站点logo
   mount_uploader :avatar, AvatarUploader
-  validates :avatar,   :presence => true
+  validates :avatar,      :presence => true
   # 站点右侧菜单
   field :site_menu1,      type: String
   validates :site_menu1,  :presence => true
