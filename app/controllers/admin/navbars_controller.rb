@@ -1,4 +1,4 @@
-class Admin::NavbarController < ApplicationController
+class Admin::NavbarsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
   layout 'admin'
