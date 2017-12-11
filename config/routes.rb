@@ -9,10 +9,16 @@ Rails.application.routes.draw do
     end
   end
 
+  # 站点路径
+  resources :sites do
+    resources :navbar
+  end
+  # 命名空间下的resources
   namespace :admin do
-    resources :sites do      
+    resources :sites do
       resources :navbar
     end
   end
+
   root "welcome#index"
 end

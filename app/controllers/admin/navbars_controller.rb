@@ -1,4 +1,4 @@
-class Admin::NavbarController < ApplicationController
+class Admin::NavbarsController < ApplicationController
   before_action :authenticate_user!
   layout 'admin'
 
@@ -6,6 +6,16 @@ class Admin::NavbarController < ApplicationController
     @site = Site.find(params[:site_id])
     @navbar = @site.navbar.new
   end
+
+  def create
+    @site = Site.find(params[:site_id])
+    @navbar = @site.navbar.new(navbar_params)
+    puts "+"*30
+    puts @navbar
+
+  end
+
+
 
 
   private

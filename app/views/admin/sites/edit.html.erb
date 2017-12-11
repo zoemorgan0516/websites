@@ -19,15 +19,3 @@
     <%= f.button :submit, "提 交", class: "btn btn-primary" %>
   <% end %>
 <% end %>
-
-<!-- footer design -->
-<%= simple_form_for [:admin, @site] do |f|  %>
-  <%= f.simple_fields_for :footer do |n| %>
-    <%= n.input :avatar, as: :file, label: "公司logo" %>
-    <%= n.input :company_number,    label: "公司电话" %>
-    <%= n.input :company_address,   label: "公司地址" %>
-    <%= n.input :site_copyright,    label: "版权声明" %>
-    <%= f.button :submit, "提 交", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
-
