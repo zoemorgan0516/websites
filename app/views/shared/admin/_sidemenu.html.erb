@@ -33,6 +33,16 @@
               </li>
            <% end %>
 
+
+           <% if can? :read, UrlAddress %>
+              <li class="<%= "active" if controller_name == "users" %>">
+                  <a href="/admin/url_addresses" class="auto">
+                    <i class="fa fa-users"></i>
+                    <span>域名管理</span>
+                  </a>
+              </li>
+           <% end %>
+
           <li class="line dk hidden-folded"></li>
         </ul>
       </nav>

@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    域名管理
+    <div class="pull-right">
+      <%= link_to "新建域名", new_admin_url_address_path, class: "btn btn-primary btn-xs" %>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped b-t b-light">
+    <thead>
+      <tr>
+        <th>域名地址</th>
+        <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render(@url_addresses) %>
+      </tbody>
+    </table>
+  </div>
+
+<footer class="panel-footer">
+  <%= render partial: "shared/admin/paginate", locals: { object: @url_addresses } %>
+</footer>
+
+</div>
