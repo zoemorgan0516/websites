@@ -8,15 +8,29 @@ class Admin::SitesController < ApplicationController
     @site = current_user.site
   end
 
+  def show
+    @site = Site.find(params[:id])
+    @footer = @site.footer
+  end
+
+  def new
+    @site = Site.new
+    @site.build_footer
+  end
+
   def edit
   end
 
+  def create
+    @site = Site.new(site_params)
+    @site.save
+    redirect_to admin_sites_path
+  end
+
   def update
-    if @site.update(site_params)
-      redirect_to admin_sites_path
-    else
-      render :edit
-    end
+    @site.update(site_params)
+    @site.footer.update
+    redirect_to edit_admin_site_path(@site)
   end
 
   private
@@ -26,6 +40,6 @@ class Admin::SitesController < ApplicationController
   end
 
   def site_params
-    params.require(:site).permit(:site_name, :site_url)
+    params.require(:site).permit(:avatar, :site_name, :site_url, footer_attributes: [ :avatar, :company_number, :company_address ])
   end
 end

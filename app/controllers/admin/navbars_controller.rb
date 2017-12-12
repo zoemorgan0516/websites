@@ -3,9 +3,17 @@ class Admin::NavbarsController < ApplicationController
   load_and_authorize_resource
   layout 'admin'
 
-  def new
+  def create
     @site = Site.find(params[:site_id])
-    @navbar = @site.navbar.new
+    @navbar = @site.navbars.new(navbar_params)
+    @navbar.save
+    redirect_to edit_admin_site_path(@site)
+  end
+
+  def update
+    @site = Site.find(params[:site_id])
+    @navbar = @site.navbars.update(navbar_params)
+    redirect_to edit_admin_site_path(@site)
   end
 
 
