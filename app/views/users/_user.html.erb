@@ -4,6 +4,12 @@
   <td><%= user.email %></td>
   <td><%= user.site_url %></td>
   <td>
+    <% user.url_addresses.each do |url_address| %>
+               <%= url_address.site_url %>
+               *<br>
+    <% end %>
+  </td>
+  <td>
     <% if user.sites.find_by(user: user)%>
       <label>此网站已激活</label>
       <%= link_to("取消激活站点", unfavorite_user_path(user), method: :put, class: "btn btn-xs btn-primary")%>

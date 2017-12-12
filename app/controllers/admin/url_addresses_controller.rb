@@ -46,7 +46,7 @@ class Admin::UrlAddressesController < ApplicationController
   end
 
   def url_address_params
-    params.require(:url_address).permit( :site_url)
+    params.require(:url_address).permit(:site_url)
   end
 
 end
