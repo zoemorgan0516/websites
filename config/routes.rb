@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :sites
     resources :url_addresses
     resources :footers
+    resources :categories
   end
 # 前台网站展示路径
   resources :navbars

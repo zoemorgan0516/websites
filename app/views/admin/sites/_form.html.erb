@@ -13,9 +13,9 @@
               <% if @site&.footer&.avatar_url %>
                  <img src="/<%= @site.footer.avatar_url %>" alt="">
               <% end %>
-              <%= n.input :avatar, as: :file, label: "footer网站logo" %>
-              <%= n.input :company_number, label: "公司电话" %>
-              <%= n.input :company_address, label: "公司地址" %>
+              <%= n.input :avatar, as: :file, label: "footer网站logo", as: :string, input_html: {id: 'avatar',value: '1'} %>
+              <%= n.input :company_number, label: "公司电话", as: :string, input_html: {id: 'company_number',value: '1'} %>
+              <%= n.input :company_address, label: "公司地址", as: :string, input_html: {id: 'company_address',value: '1'} %>
           <% end %>
 
           <div class="line line-dashed b-b line-lg pull-in"></div>

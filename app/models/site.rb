@@ -23,4 +23,6 @@ class Site
   has_one   :footer
   accepts_nested_attributes_for :footer
 
+  has_many :categories
+
 end
