@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 # 后台网站板式组成部分的路径
   namespace :admin do
     resources :sites
+    resources :url_addresses
     resources :footers
   end
 # 前台网站展示路径

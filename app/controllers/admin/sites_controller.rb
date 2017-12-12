@@ -5,8 +5,7 @@ class Admin::SitesController < ApplicationController
   layout "admin"
 
   def index
-    @sites = Site.all
-    @sites = @sites.page params[:page]
+    @site = current_user.site
   end
 
   def show

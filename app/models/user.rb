@@ -38,27 +38,29 @@ class User
   ## 使用的属性
   # 管理员姓名
   field :user_name,              type: String
-  validates :user_name, presence: true
+  # validates :user_name, presence: true
   # 管理员管理的站点域名
-  field :site_url,              type: String
-  validates :site_url, presence: true
+
+
   # 管理员角色
   field :role,                  type: String
-  validates :role, presence: true
+  # validates :role, presence: true
   ROLES = [:super_admin, :admin]
 
 
 
   ## 关联关系
-  has_many :sites
+  has_one :site
+  belongs_to :url_address
 
   ## 方法
 
   def favorite
-    self.sites.create(site_url: self.site_url)
+    self.build_site(site_url: self.url_address.site_url)
+    self.site.save
   end
 
   def unfavorite
-    self.sites.destroy_all
+    self.site.destroy
   end
 end

@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
    def new
       @user = User.new
+
    end
 
    def create
@@ -41,17 +42,13 @@ class UsersController < ApplicationController
    end
 
    def favorite
-     if !@user.sites.find_by(user: @user)
        @user.favorite
        redirect_to users_path
-     end
    end
 
    def unfavorite
-     if @user.sites.find_by(user: @user)
        @user.unfavorite
-       redirect_to users_path
-     end
+       redirect_to users_path  
    end
 
    private
@@ -61,7 +58,7 @@ class UsersController < ApplicationController
    end
 
    def user_params
-     params.require(:user).permit(:user_name, :site_url, :email, :password, :password_confirmation, :role)
+     params.require(:user).permit(:user_name, :site_url, :email, :password, :password_confirmation, :role, :url_address_id)
    end
 
    def set_title

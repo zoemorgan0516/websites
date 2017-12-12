@@ -2,7 +2,7 @@
     <%= f.input :user_name,                label: "站点管理员姓名" %>
     <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
     <%= f.input :email,                    label: "站点管理员邮箱" %>
-    <%= f.input :site_url,                  label: "站点域名" %>
+    <%= f.association :url_address, label_method: :site_url, value_method: :id %>
     <%= f.input :password,                 label: "登录密码" %>
     <%= f.input :password_confirmation,    label: "确认登录密码" %>
     <div class="line line-dashed b-b line-lg pull-in"></div>
