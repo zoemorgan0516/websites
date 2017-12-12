@@ -29,6 +29,7 @@ class Admin::SitesController < ApplicationController
 
   def update
     @site.update(site_params)
+    @site.footer.update
     redirect_to edit_admin_site_path(@site)
   end
 
