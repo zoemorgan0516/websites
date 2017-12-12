@@ -11,7 +11,6 @@ class Admin::FootersController < ApplicationController
   def create
     @footer = Footer.new(footer_params)
     @footer.save
-    puts "=================="
   end
 
   private
