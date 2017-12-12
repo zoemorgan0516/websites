@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
    before_action :authenticate_user!
+   load_and_authorize_resource
    before_action :set_user, only: [:edit, :update, :destroy, :show, :favorite, :unfavorite]
    layout 'admin'
    def index
@@ -60,7 +61,7 @@ class UsersController < ApplicationController
    end
 
    def user_params
-     params.require(:user).permit(:user_name, :site_url, :email, :password, :password_confirmation)
+     params.require(:user).permit(:user_name, :site_url, :email, :password, :password_confirmation, :role)
    end
 
    def set_title
