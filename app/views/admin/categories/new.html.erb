@@ -1,0 +1,8 @@
+<%= simple_form_for(@category, url: admin_site_path(site_id: params[:id])) do |f| %>
+  <%= f.input :menu,  label: "菜单名称"  %>
+  <div class="line line-dashed b-b line-lg pull-in"></div>
+  <div class="col-sm-10 col-sm-offset-2">
+      <%= f.button :submit, "提 交", class: "btn btn-primary" %>
+      <%= link_to "返 回", admin_sites_path, class: "btn btn-default" %>
+  </div>
+<% end %>
