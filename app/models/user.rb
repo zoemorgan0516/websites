@@ -50,16 +50,17 @@ class User
 
 
   ## 关联关系
-  has_many :sites
+  has_one :site
   belongs_to :url_address
 
   ## 方法
 
   def favorite
-    self.sites.create(site_url: self.url_address.site_url)
+    self.build_site(site_url: self.url_address.site_url)
+    self.site.save
   end
 
   def unfavorite
-    self.sites.destroy_all
+    self.site.destroy
   end
 end

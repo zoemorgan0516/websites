@@ -5,8 +5,7 @@ class Admin::SitesController < ApplicationController
   layout "admin"
 
   def index
-    @sites = current_user.sites
-    @sites = @sites.page params[:page]
+    @site = current_user.site
   end
 
   def edit

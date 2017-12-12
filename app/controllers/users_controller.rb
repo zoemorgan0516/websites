@@ -42,17 +42,13 @@ class UsersController < ApplicationController
    end
 
    def favorite
-     if !@user.sites.find_by(user: @user)
        @user.favorite
        redirect_to users_path
-     end
    end
 
    def unfavorite
-     if @user.sites.find_by(user: @user)
        @user.unfavorite
-       redirect_to users_path
-     end
+       redirect_to users_path  
    end
 
    private
