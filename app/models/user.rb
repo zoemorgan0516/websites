@@ -51,7 +51,7 @@ class User
 
   ## 关联关系
   has_many :sites
-  has_one :url_addresses
+  belongs_to :url_address
 
   ## 方法
 

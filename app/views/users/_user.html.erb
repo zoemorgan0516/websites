@@ -2,12 +2,8 @@
   <td><%= user.user_name %></td>
   <td><%= user.role %></td>
   <td><%= user.email %></td>
-  <td><%= user.site_url %></td>
   <td>
-    <% user.url_addresses.each do |url_address| %>
-               <%= url_address.site_url %>
-               *<br>
-    <% end %>
+    <%= user.url_address.try(:site_url) %>
   </td>
   <td>
     <% if user.sites.find_by(user: user)%>

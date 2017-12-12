@@ -6,5 +6,5 @@ class UrlAddress
   validates :site_url, presence: true
 
   # 关联关系
-  belongs_to :user
+  has_one :user
 end
