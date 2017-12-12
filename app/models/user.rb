@@ -57,6 +57,7 @@ class User
 
   def favorite
     self.build_site(site_url: self.url_address.site_url)
+    self.site.build_footer(company_number: 3333)
     self.site.save
   end
 

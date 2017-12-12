@@ -23,6 +23,7 @@ class Admin::SitesController < ApplicationController
 
   def create
     @site = Site.new(site_params)
+    @site.user = current_user
     @site.save
     redirect_to admin_sites_path
   end
@@ -30,7 +31,7 @@ class Admin::SitesController < ApplicationController
   def update
     @site.update(site_params)
     @site.footer.update
-    redirect_to edit_admin_site_path(@site)
+    redirect_to admin_sites_path
   end
 
   private
