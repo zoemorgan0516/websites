@@ -3,17 +3,16 @@ class Admin::NavbarsController < ApplicationController
   layout 'admin'
 
   def create
-    puts "========"
     @site = Site.find(params[:site_id])
-    puts "**********"
-    @site
-    puts "****&&&&&&&"
     @navbar = @site.navbars.new(navbar_params)
     @navbar.save
-    puts "========"
-    puts @navbar.id
-    puts "**********"
-    redirect_to navbars_path
+    redirect_to edit_admin_site_path(@site)
+  end
+
+  def update
+    @site = Site.find(params[:site_id])
+    @navbar = @site.navbars.update(navbar_params)
+    redirect_to edit_admin_site_path(@site)
   end
 
 

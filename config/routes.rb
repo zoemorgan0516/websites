@@ -11,10 +11,8 @@ Rails.application.routes.draw do
   end
 # 后台网站板式组成部分的路径
   namespace :admin do
-    resources :sites do
-      resources :navbars
-      resources :footers
-    end
+    resources :sites
+    resources :footers
   end
 # 前台网站展示路径
   resources :navbars
