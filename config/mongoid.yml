@@ -9,7 +9,8 @@ development:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - 192.168.1.110:27017
+        - 192.168.0.102:27017
+
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -140,7 +141,7 @@ development:
     # Control whether `belongs_to` association is required. By default
     # `belongs_to` will trigger a validation error if the association
     # is not present. (default: true)
-    # belongs_to_required_by_default: true
+    belongs_to_required_by_default: false
 
     # Application name that is printed to the mongodb logs upon establishing a
     # connection in server versions >= 3.4. Note that the name cannot exceed 128 bytes.

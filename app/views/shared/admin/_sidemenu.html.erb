@@ -33,6 +33,13 @@
               </li>
            <% end %>
 
+            <li class="<%= "active" if controller_name == "admin::footers" %>">
+              <a href="/admin/footers" class="auto">
+                <i class="fa fa-users"></i>
+                <span>footer管理</span>
+              </a>
+            </li>
+
           <li class="line dk hidden-folded"></li>
         </ul>
       </nav>

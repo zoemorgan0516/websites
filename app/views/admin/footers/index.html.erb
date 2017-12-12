@@ -10,13 +10,11 @@
   </thead>
 
   <tbody>
-    <% @admin_footers.each do |admin_footer| %>
-      <tr>
-        <td><%= link_to 'Show', admin_footer %></td>
+
+        <td><%= link_to footer.company_number(@footer, url: admin_site_footer_path(site_id: params[:id])) %></td>
         <td><%= link_to 'Edit', edit_admin_footer_path(admin_footer) %></td>
         <td><%= link_to 'Destroy', admin_footer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+
   </tbody>
 </table>
 

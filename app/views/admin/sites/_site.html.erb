@@ -1,5 +1,5 @@
 <tr>
-  <td><%= site.site_name%></td>
+  <td><%= link_to site.site_name, admin_site_path(site)%></td>
   <td><%= current_user.site_url %></td>
   <td><%= current_user.user_name %></td>
   <td><%= current_user.email %></td>
