@@ -40,8 +40,8 @@ class User
   field :user_name,              type: String
   validates :user_name, presence: true
   # 管理员管理的站点域名
-  field :site_url,              type: String
-  validates :site_url, presence: true
+
+
   # 管理员角色
   field :role,                  type: String
   validates :role, presence: true
@@ -56,7 +56,7 @@ class User
   ## 方法
 
   def favorite
-    self.sites.create(site_url: self.site_url)
+    self.sites.create(site_url: self.url_address.site_url)
   end
 
   def unfavorite
