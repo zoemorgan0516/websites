@@ -38,13 +38,13 @@ class User
   ## 使用的属性
   # 管理员姓名
   field :user_name,              type: String
-  validates :user_name, presence: true
+  # validates :user_name, presence: true
   # 管理员管理的站点域名
 
 
   # 管理员角色
   field :role,                  type: String
-  validates :role, presence: true
+  # validates :role, presence: true
   ROLES = [:super_admin, :admin]
 
 

@@ -1,6 +1,6 @@
 <tr>
   <td><%= site.site_name%></td>
-  <td><%= site.site_url %></td>
+  <td><%= current_user.url_address.site_url %></td>
   <td><%= current_user.user_name %></td>
   <td><%= current_user.email %></td>
   <td><%= link_to("编辑", edit_admin_site_path(site), class: "btn btn-xs btn-primary")%></td>
