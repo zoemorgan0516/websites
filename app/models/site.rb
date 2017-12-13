@@ -25,4 +25,6 @@ class Site
 
   has_many :categories
 
+  has_many :slider_pictures
+
 end

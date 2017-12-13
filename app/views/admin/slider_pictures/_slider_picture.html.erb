@@ -1,0 +1,7 @@
+<tr>
+  <td><%= slider_picture.content %></td>
+  <td>
+    <%= link_to("编辑", edit_admin_slider_picture_path(slider_picture), class: "btn btn-xs btn-primary")%>|
+    <%= link_to("删除", admin_slider_picture_path(slider_picture), method: :delete, class: "btn btn-xs btn-primary")%>
+  </td>
+</tr>

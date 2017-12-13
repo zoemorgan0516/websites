@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SliderPictrueTest < ActiveSupport::TestCase
+class SliderPictureTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
