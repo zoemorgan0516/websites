@@ -24,7 +24,6 @@ class Site
   accepts_nested_attributes_for :footer
 
   has_many :categories
-
   has_many :contents
   has_many :cooperations
   has_many :slider_pictures

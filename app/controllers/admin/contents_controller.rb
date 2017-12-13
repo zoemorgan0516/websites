@@ -11,7 +11,7 @@ class Admin::ContentsController < ApplicationController
 
   def new
     @content = Content.new
-    @photo = @cooperation.photos.build
+    @photo = @content.photos.build
   end
 
   def edit
@@ -51,6 +51,6 @@ class Admin::ContentsController < ApplicationController
   end
 
   def content_params
-    params.require(:content).permit(:word, photos_attributes: [:id, :cooperation_id,:avatar])
+    params.require(:content).permit(:word, photos_attributes: [:id, :cooperation_id, :avatar])
   end
 end

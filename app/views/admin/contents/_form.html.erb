@@ -1,4 +1,4 @@
-<%= simple_form_for(@content, url: admin_contents_path(site_id: params[:id])) do |f| %>
+<%= simple_form_for [:admin, @content] do |f| %>
   <%= f.input :word,  label: "文字内容"  %>
   <%= f.label :"图片内容" %>
     <%= f.simple_fields_for :photos do |a| %>

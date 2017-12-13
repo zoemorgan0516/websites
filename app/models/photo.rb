@@ -6,6 +6,7 @@ class Photo
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :cooperation
+  belongs_to :content
 
 
 end
