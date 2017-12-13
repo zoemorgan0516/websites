@@ -33,9 +33,7 @@
               </li>
            <% end %>
 
-
-
-           <% if can? :read, UrlAddress %>
+           <% if can? :read, User %>
               <li class="<%= "active" if controller_name == "users" %>">
                   <a href="/admin/url_addresses" class="auto">
                     <i class="fa fa-users"></i>
@@ -44,12 +42,40 @@
               </li>
            <% end %>
 
-            <li class="<%= "active" if controller_name == "admin::categories" %>">
-              <a href="/admin/categories" class="auto">
+          <% if can? :read, User %>
+              <li class="<%= "active" if controller_name == "admin::categories" %>">
+                <a href="/admin/categories" class="auto">
+                  <i class="fa fa-users"></i>
+                  <span>菜单分类管理</span>
+                </a>
+              </li>
+          <% end %>
+
+          <% if can? :read, User %>
+            <li class="<%= "active" if controller_name == "admin::slider_pictures" %>">
+              <a href="/admin/slider_pictures" class="auto">
                 <i class="fa fa-users"></i>
-                <span>菜单分类管理</span>
+                <span>滑动图片栏管理</span>
               </a>
             </li>
+          <% end %>
+
+
+          <% if can? :read, User %>
+            <li class="<%= "active" if controller_name == "admin::advantages" %>">
+              <a href="/admin/advantages" class="auto">
+                <i class="fa fa-users"></i>
+                <span>我们的优势栏管理</span>
+              </a>
+            </li>
+          <% end %>
+
+            <li class="<%= "active" if controller_name == "admin::cooperations" %>">
+              <a href="/admin/cooperations" class="auto">
+                <i class="fa fa-users"></i>
+                <span>合作伙伴管理</span> </a>
+            </li>
+
 
             <li class="<%= "active" if controller_name == "admin::contents" %>">
               <a href="/admin/contents" class="auto">

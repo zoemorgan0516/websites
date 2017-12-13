@@ -1,3 +1,11 @@
 <tr>
   <td><%= @site.categories.first.menu %></td>
+  <td><%= @site.slider_pictures.first.content %></td>
+  <td>
+      <%= image_tag(@site.slider_pictures.first.avatar_url("zoe666"), class: "thumbnail") %>
+  </td>
+  <td><%= @site.advantages.first.content %></td>
+  <td>
+      <%= image_tag(@site.advantages.first.avatar_url("zoe666"), class: "thumbnail") %>
+  </td>
 </tr>
