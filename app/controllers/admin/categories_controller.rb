@@ -1,7 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  before_action :set_category, only: [:edit, :update]
+  before_action :set_category, only: [:edit, :update, :destroy]
   layout "admin"
 
   def index
@@ -25,6 +25,11 @@ class Admin::CategoriesController < ApplicationController
 
   def update
     @category.update(category_params)
+    redirect_to admin_categories_path(@site)
+  end
+
+  def destroy
+    @category.destroy
     redirect_to admin_categories_path(@site)
   end
 
