@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     resources :footers
     resources :categories
     resources :cooperations
+    resources :photos do
+      member do
+        delete 'delete'
+      end
+    end
   end
 # 前台网站展示路径
   resources :navbars
