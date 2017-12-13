@@ -47,6 +47,7 @@ gem 'kaminari-mongoid'
 # 图片云存储
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 gem 'carrierwave-upyun'
 
 # 权限管理
