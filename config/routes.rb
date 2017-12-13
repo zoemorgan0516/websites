@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         delete 'delete'
       end
     end
+    resources :slider_pictures
   end
 # 前台网站展示路径
   resources :navbars

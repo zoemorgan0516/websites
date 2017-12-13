@@ -26,4 +26,6 @@ class Site
   has_many :categories
   has_many :cooperations
 
+  has_many :slider_pictures
+
 end
