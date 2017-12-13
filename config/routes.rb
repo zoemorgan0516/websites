@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :footers
     resources :categories
     resources :slider_pictures
+    resources :advantages
   end
 # 前台网站展示路径
   resources :navbars
