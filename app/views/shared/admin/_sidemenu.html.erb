@@ -60,6 +60,7 @@
             </li>
           <% end %>
 
+
           <% if can? :read, User %>
             <li class="<%= "active" if controller_name == "admin::advantages" %>">
               <a href="/admin/advantages" class="auto">
@@ -68,6 +69,13 @@
               </a>
             </li>
           <% end %>
+
+            <li class="<%= "active" if controller_name == "admin::cooperations" %>">
+              <a href="/admin/cooperations" class="auto">
+                <i class="fa fa-users"></i>
+                <span>合作伙伴管理</span> </a>
+            </li>
+
 
 
           <li class="line dk hidden-folded"></li>
