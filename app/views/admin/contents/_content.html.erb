@@ -1,0 +1,15 @@
+<tr>
+  <td><%= link_to content.word, admin_content_path(content) %></td>
+  <td>
+    <% if content.images.present? %>
+    吃吃戳
+       <% content.images.each do |i| %>
+          <img src="<%= i.url("zoe666") %>">
+       <% end %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to("编辑", edit_admin_content_path(content), class: "btn btn-xs btn-primary")%>|
+    <%= link_to("删除", admin_content_path(content), method: :delete, class: "btn btn-xs btn-primary")%>
+  </td>
+</tr>
