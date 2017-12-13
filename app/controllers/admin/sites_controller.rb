@@ -9,7 +9,8 @@ class Admin::SitesController < ApplicationController
   end
 
   def show
-    @site = Site.find(params[:id])
+    @site = current_user.site
+    @categories = @site.categories
     @footer = @site.footer
   end
 
@@ -30,6 +31,7 @@ class Admin::SitesController < ApplicationController
 
   def update
     @site.update(site_params)
+    redirect_to admin_sites_path(@site)
     @site.footer.update
     redirect_to admin_sites_path
   end

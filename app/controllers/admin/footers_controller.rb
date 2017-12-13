@@ -4,7 +4,7 @@ class Admin::FootersController < ApplicationController
   layout 'admin'
 
   def index
-    @site = Site.find(params[:site_id])
+    @site = current_user.site
     @footer = @site.footer
   end
 
