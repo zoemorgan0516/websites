@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    我们的优势栏管理
+    <div class="pull-right">
+      <%= link_to "新建优势栏", new_admin_advantage_path(@site), class: "btn btn-primary btn-xs" %>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped b-t b-light">
+    <thead>
+      <tr>
+        <th>图片内容</th>
+        <th>图片</th>
+        <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render(@advantages) %>
+      </tbody>
+    </table>
+</div>

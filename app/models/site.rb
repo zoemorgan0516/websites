@@ -27,5 +27,6 @@ class Site
   has_many :cooperations
 
   has_many :slider_pictures
+  has_many :advantages
 
 end

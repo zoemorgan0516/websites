@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       end
     end
     resources :slider_pictures
+    resources :advantages
   end
 # 前台网站展示路径
   resources :navbars
