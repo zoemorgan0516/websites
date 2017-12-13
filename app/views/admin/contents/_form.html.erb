@@ -1,0 +1,12 @@
+<%= simple_form_for(@content, url: admin_contents_path(site_id: params[:id])) do |f| %>
+  <%= f.input :word,  label: "文字内容"  %>
+  <%= f.label :"图片内容" %>
+    <%= f.simple_fields_for :photos do |a| %>
+      <%= a.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+    <% end %>
+  </div>
+  <div class="line line-dashed b-b line-lg pull-in"></div>
+  <div class="col-sm-10 col-sm-offset-2">
+      <%= f.button :submit, "提 交", class: "btn btn-primary" %>
+  </div>
+<% end %>

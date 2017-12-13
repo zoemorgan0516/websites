@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to content.word, admin_content_path(content) %></td>
+  <td>
+    <% if content.photos.each do |photo| %>
+          <img src="<%= photo.avatar.url("zoe666") %>">
+    <% end %>
+  </td>
+  <td>
+    <%= link_to("编辑", edit_admin_content_path(content), class: "btn btn-xs btn-primary")%>|
+    <%= link_to("删除", admin_content_path(content), method: :delete, class: "btn btn-xs btn-primary")%>
+  </td>
+</tr>

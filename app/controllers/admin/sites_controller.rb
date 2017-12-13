@@ -31,7 +31,6 @@ class Admin::SitesController < ApplicationController
 
   def update
     @site.update(site_params)
-    redirect_to admin_sites_path(@site)
     @site.footer.update
     redirect_to admin_sites_path
   end

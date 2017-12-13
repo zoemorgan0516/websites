@@ -30,7 +30,7 @@ def url(version_name = "")
   return @url if version_name.blank?
   if not version_name.in?(IMAGE_UPLOADER_ALLOW_IMAGE_VERSION_NAMES)
     # To protected version name using, when it not defined, this will be give an error message in development environment
-    raise "IMAGEloader version_name:#{version_name} not allow."
+    raise "ImageUploader version_name:#{version_name} not allow."
   end
   [@url,version_name].join("!") # thumb split with "!"
 end

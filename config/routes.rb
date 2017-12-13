@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :url_addresses
     resources :footers
     resources :categories
+    resources :contents
     resources :cooperations
     resources :photos do
       member do
