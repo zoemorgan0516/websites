@@ -11,6 +11,7 @@ class Admin::ContentsController < ApplicationController
 
   def new
     @content = Content.new
+    @photo = @cooperation.photos.build
   end
 
   def edit
@@ -20,11 +21,25 @@ class Admin::ContentsController < ApplicationController
     @site = current_user.site
     @content = @site.contents.new(content_params)
     @content.save
+      params[:photos]['avatar'].each do |i|
+        @photo = @content.photos.create!(:avatar => i)
+      end
     redirect_to admin_contents_path(@site)
   end
 
   def update
-    @content.update(content_params)
+    if @content.update(params.require(:content).permit!)
+       if not params[:content].blank?
+         params[:photos]['avatar'].each do |i|
+           @photo = @content.photos.create!(:avatar => i)
+         end
+       end
+     end
+    redirect_to admin_contents_path(@site)
+  end
+
+  def destroy
+    @content.destroy
     redirect_to admin_contents_path(@site)
   end
 
@@ -36,6 +51,6 @@ class Admin::ContentsController < ApplicationController
   end
 
   def content_params
-    params.require(:content).permit(:word, {images: []})
+    params.require(:content).permit(:word, photos_attributes: [:id, :cooperation_id,:avatar])
   end
 end

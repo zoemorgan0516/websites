@@ -11,4 +11,5 @@ class Content
   validates :images, presence: true
 
   belongs_to :site
+  has_many   :photos
 end

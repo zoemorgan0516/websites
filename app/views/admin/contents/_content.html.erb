@@ -1,11 +1,8 @@
 <tr>
   <td><%= link_to content.word, admin_content_path(content) %></td>
   <td>
-    <% if content.images.present? %>
-    吃吃戳
-       <% content.images.each do |i| %>
-          <img src="<%= i.url("zoe666") %>">
-       <% end %>
+    <% if content.photos.each do |photo| %>
+          <img src="<%= photo.avatar.url("zoe666") %>">
     <% end %>
   </td>
   <td>
