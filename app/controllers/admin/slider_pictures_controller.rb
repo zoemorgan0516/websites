@@ -52,6 +52,6 @@ class Admin::SliderPicturesController < ApplicationController
   end
 
   def slider_picture_params
-    params.require(:slider_picture).permit(:content)
+    params.require(:slider_picture).permit(:content, :avatar)
   end
 end
