@@ -1,0 +1,8 @@
+<td>
+  <% if @content.photos.present? %>
+     <% @content.photos.each do |i| %>
+        <img src="<%= i.avatar.url("zoe666") %>">
+     <% end %>
+  <% end %>
+</td>
+<td>
