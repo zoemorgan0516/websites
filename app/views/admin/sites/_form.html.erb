@@ -1,11 +1,6 @@
-<div class="panel panel-default">
-    <div class="panel-heading font-bold">
-        站点页面设计
-    </div>
-    <div class="panel-body">
-      <%= simple_form_for [:admin, @site] do |f| %>
-          <%= f.input :site_name,  abel: "站点名字" %>
-          <%= f.input :avatar, as: :file, label: "网站logo" %>
+<%= simple_form_for [:admin, @site] do |f| %>
+          <%= f.input :name,  abel: "站点名字" %>
+          <%= f.input :domain, label: "站点域名" %>
 
           <!-- navbar design -->
           <h3>网站导航设计</h3>
@@ -23,6 +18,4 @@
               <%= f.button :submit, "提 交", class: "btn btn-primary" %>
               <%= link_to "返 回", admin_sites_path, class: "btn btn-default" %>
           </div>
-      <% end %>
-    </div>
-</div>
+<% end %>

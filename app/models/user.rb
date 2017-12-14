@@ -1,6 +1,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
+  paginates_per 5
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -37,7 +38,7 @@ class User
 
   ## 使用的属性
   # 管理员姓名
-  field :user_name,              type: String
+  # field :user_name,              type: String
   # validates :user_name, presence: true
   # 管理员管理的站点域名
 
@@ -45,23 +46,15 @@ class User
   # 管理员角色
   field :role,                  type: String
   # validates :role, presence: true
-  ROLES = [:super_admin, :admin]
-
+  # User角色
+  ROLES = %i[super admin user]
+  def super?
+   role == 'super'
+  end
 
 
   ## 关联关系
-  has_one :site
-  belongs_to :url_address
+  belongs_to :site
 
-  ## 方法
 
-  def favorite
-    self.build_site(site_url: self.url_address.site_url)
-    self.site.build_footer(company_number: 3333)
-    self.site.save
-  end
-
-  def unfavorite
-    self.site.destroy
-  end
 end

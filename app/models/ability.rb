@@ -2,16 +2,16 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-     user ||= User.new
-     if user.role == 'super_admin'
-       can :manage, :all
-     elsif user.role == 'admin'
-       can :manage, Site
-       can :manage, Navbar
-       can :manage, Footer
-       can :read, :all
-     elsif
-       can :read, Site
-     end
+    user ||= User.new # guest user (not logged in)
+    if user.super?
+      can :manage, Site
+      can :manage, User
+    elsif user.role == 'admin'
+      can [:update, :read], Site
+      can :manage, User
+    elsif user.role == 'user'
+      alias_action :read, :to => :welcome
+      can :read, Site
+    end
   end
 end

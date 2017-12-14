@@ -1,11 +1,13 @@
-class Admin::SitesController < ApplicationController
-  before_action :authenticate_user!
-  load_and_authorize_resource
+class Admin::SitesController < BaseController
   before_action :set_site, only: [:edit, :update]
-  layout "admin"
-
   def index
-    @site = current_user.site
+    if can? :manage, Site
+    @sites = Site.all.page params[:page]
+    elsif can? :update, Site
+      @sites = Site.where(id: current_user.site_id).page params[:page]
+    elsif can? :read, Site
+      render :show
+    end
   end
 
   def show
@@ -15,7 +17,9 @@ class Admin::SitesController < ApplicationController
   end
 
   def new
-    @site = Site.new
+    if can? :manage, Site
+      @site = Site.new
+    end
     @site.build_footer
   end
 
@@ -23,8 +27,11 @@ class Admin::SitesController < ApplicationController
   end
 
   def create
-    @site = Site.new(site_params)
-    @site.user = current_user
+    if current_user.role == "super"
+        @site = Site.new(site_params)
+    else
+        @site = current_user.sites.build(site_params)
+    end
     @site.save
     redirect_to admin_sites_path
   end
@@ -42,6 +49,6 @@ class Admin::SitesController < ApplicationController
   end
 
   def site_params
-    params.require(:site).permit(:avatar, :site_name, :site_url, footer_attributes: [ :avatar, :company_number, :company_address ])
+    params.require(:site).permit(:avatar, :site_name, :name, :domain, footer_attributes: [ :avatar, :company_number, :company_address ])
   end
 end

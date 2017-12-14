@@ -1,8 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    邮箱管理
+    用户列表
     <div class="pull-right">
-      <%= link_to "新建站点管理员", new_user_path, class: "btn btn-primary btn-xs" %>
+     <% if can? :create, User %>
+       <%= link_to "新建站点管理员", new_user_path, class: "btn btn-primary btn-xs" %>
+     <% end %>
     </div>
   </div>
 
@@ -10,11 +12,9 @@
     <table class="table table-striped b-t b-light">
     <thead>
       <tr>
-        <th>站点管理员姓名</th>
-        <th>管理员角色</th>
-        <th>站点管理员邮箱</th>
-        <th>站点域名</th>
-        <th>激活站点</th>
+        <th>邮箱</th>
+        <th>站点</th>
+        <th>权限</th>
         <th>操作</th>
         </tr>
       </thead>
