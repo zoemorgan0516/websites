@@ -10,6 +10,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
+
   end
 
   # GET /sites/new
@@ -69,6 +70,6 @@ class SitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params.fetch(:site, {})
+      params.require(:site).permit(:avatar, :site_name, :site_url, footer_attributes: [ :avatar, :company_number, :company_address ])
     end
 end

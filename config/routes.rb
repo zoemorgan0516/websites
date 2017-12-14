@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :navbars
   devise_for :users
 ## 后台权限管理
 # 账号管理
@@ -26,7 +25,7 @@ Rails.application.routes.draw do
     resources :advantages
   end
 # 前台网站展示路径
-  resources :navbars
+  resources :sites
   resources :footers
 
   root "welcome#index"
