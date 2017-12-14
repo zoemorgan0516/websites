@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    用户列表
+    <% if can? :create, User %>
+    <div class="pull-right">
+      <%= link_to "新建站点管理员", new_user_path, class: "btn btn-primary btn-xs" %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped b-t b-light">
+    <thead>
+      <tr>
+        <th>邮箱</th>
+        <th>站点</th>
+        <th>权限</th>
+        <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render(@users) %>
+      </tbody>
+    </table>
+  </div>
+
+<footer class="panel-footer">
+  <%= render partial: "shared/admin/paginate", locals: { object: @users } %>
+</footer>
+
+</div>
