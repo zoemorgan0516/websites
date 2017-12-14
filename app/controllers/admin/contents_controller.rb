@@ -21,10 +21,11 @@ class Admin::ContentsController < ApplicationController
     @site = current_user.site
     @content = @site.contents.new(content_params)
     @content.save
+    redirect_to admin_contents_path(@site)
       params[:photos]['avatar'].each do |i|
         @photo = @content.photos.create!(:avatar => i)
       end
-    redirect_to admin_contents_path(@site)
+
   end
 
   def update
@@ -51,6 +52,6 @@ class Admin::ContentsController < ApplicationController
   end
 
   def content_params
-    params.require(:content).permit(:word, photos_attributes: [:id, :cooperation_id, :avatar])
+    params.require(:content).permit(:title, :word, photos_attributes: [:id, :cooperation_id, :avatar])
   end
 end

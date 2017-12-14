@@ -1,5 +1,6 @@
 <%= simple_form_for [:admin, @content] do |f| %>
   <%= f.input :word,  label: "标题"  %>
+  <%= f.input :word,  label: "文字内容"  %>
   <!-- 显示图片,并可删除图片 -->
   <% @content.photos.all.each do |photo| %>
   <div id="<%= photo.id %>">
