@@ -17,32 +17,39 @@
             <span>平台管理</span>
           </li>
 
-            <li class="<%= "active" if controller_name == "admin::sites" %>">
-              <a href="/admin/sites" class="auto">
-                <i class="fa fa-file-text"></i>
-                <span>站点生成</span>
-              </a>
-            </li>
-
-           <% if can? :read, User %>
-              <li class="<%= "active" if controller_name == "users" %>">
-                  <a href="/managers" class="auto">
-                    <i class="fa fa-users"></i>
-                    <span>用户管理</span>
-                  </a>
+          <% if can?  :manage, Site %>
+              <li class="<%= "active" if controller_name == "admin::sites" %>">
+                <a href="/admin/sites" class="auto">
+                  <i class="glyphicon glyphicon-blackboard"></i>
+                  <span>多站点管理</span>
+                </a>
               </li>
-           <% end %>
-
-           <% if can? :read, User %>
-              <li class="<%= "active" if controller_name == "users" %>">
-                  <a href="/admin/url_addresses" class="auto">
-                    <i class="fa fa-users"></i>
-                    <span>域名管理</span>
-                  </a>
+            <% elsif can? :update, Site %>
+              <li class="<%= "active" if controller_name == "admin::sites" %>">
+                 <a href="/admin/sites/<%= current_user.site.id %>/edit" class="auto">
+                  <i class="glyphicon glyphicon-blackboard"></i>
+                  <span>站点管理</span>
+                </a>
               </li>
-           <% end %>
+            <% end %>
 
-          <% if can? :read, User %>
+            <% if can? :manage, User %>
+              <li class="<%= "active" if controller_name == "users" %>">
+                <a href="/managers" class="auto">
+                  <i class="glyphicon glyphicon-user"></i>
+                  <span>用户管理</span>
+                </a>
+              </li>
+            <% else %>
+              <li class="<%= "active" if controller_name == "users" %>">
+                <a href="/managers" class="auto">
+                  <i class="glyphicon glyphicon-user"></i>
+                  <span>账号管理</span>
+                </a>
+              </li>
+            <% end %>
+
+          <% if can? :manage, Category %>
               <li class="<%= "active" if controller_name == "admin::categories" %>">
                 <a href="/admin/categories" class="auto">
                   <i class="fa fa-users"></i>
@@ -51,7 +58,7 @@
               </li>
           <% end %>
 
-          <% if can? :read, User %>
+          <% if can? :read, SliderPicture %>
             <li class="<%= "active" if controller_name == "admin::slider_pictures" %>">
               <a href="/admin/slider_pictures" class="auto">
                 <i class="fa fa-users"></i>
@@ -60,15 +67,17 @@
             </li>
           <% end %>
 
-          <li class="<%= "active" if controller_name == "admin::contents" %>">
-            <a href="/admin/contents" class="auto">
-              <i class="fa fa-users"></i>
-              <span>文字图片内容管理</span>
-            </a>
-          </li>
+          <% if can? :manage, Content %>
+            <li class="<%= "active" if controller_name == "admin::contents" %>">
+              <a href="/admin/contents" class="auto">
+                <i class="fa fa-users"></i>
+                <span>文字图片内容管理</span>
+              </a>
+            </li>
+          <% end %>
 
 
-          <% if can? :read, User %>
+          <% if can? :manage, Advantage %>
             <li class="<%= "active" if controller_name == "admin::advantages" %>">
               <a href="/admin/advantages" class="auto">
                 <i class="fa fa-users"></i>
@@ -77,11 +86,13 @@
             </li>
           <% end %>
 
+          <% if can? :manage, Cooperation %>
             <li class="<%= "active" if controller_name == "admin::cooperations" %>">
               <a href="/admin/cooperations" class="auto">
                 <i class="fa fa-users"></i>
                 <span>合作伙伴管理</span> </a>
             </li>
+          <% end %>
 
 
           <li class="line dk hidden-folded"></li>

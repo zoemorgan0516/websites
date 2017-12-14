@@ -9,6 +9,11 @@ class Ability
     elsif user.role == 'admin'
       can [:update, :read], Site
       can :manage, User
+      can :manage, Category
+      can :manage, Advantage
+      can :manage, Content
+      can :manage, Cooperation
+      can :manage, SliderPicture
     elsif user.role == 'user'
       alias_action :read, :to => :welcome
       can :read, Site
