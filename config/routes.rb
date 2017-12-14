@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   end
 # 前台网站展示路径
   resources :sites
+  resources :contents
   resources :footers
 
   root "welcome#index"
