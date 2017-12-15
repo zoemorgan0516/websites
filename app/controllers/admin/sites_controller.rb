@@ -3,7 +3,7 @@ class Admin::SitesController < BaseController
   def index
     if can? :manage, Site
       @sites = Site.all.page params[:page]
-    elsif can? :manage, Site
+    elsif can? :update, Site
       @sites = Site.where(id: current_user.site_id).page params[:page]
     elsif can? :read, Site
       render :show
