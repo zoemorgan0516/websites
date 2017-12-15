@@ -12,7 +12,7 @@ class Site
   # 版权等
   field :site_copyright,         type: String
   # 站点名字
-  field :name,              type: String
+  field :site_name,              type: String
   #validates :name, presence: true
   # 站点域名
 
