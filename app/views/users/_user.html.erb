@@ -1,6 +1,6 @@
 <tr>
    <td><%= user.email %></td>
-   <td><%= !user.site.blank? ? user.site.name : "" %></td>
+   <td><%= !user.site.blank? ? user.site.domain : "" %></td>
    <td><%= user.role %></td>
    <td><%= user.created_at.strftime("%F %T")%></td>
    <td>
