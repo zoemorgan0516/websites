@@ -19,7 +19,7 @@ class Site
   validates :domain, presence: true
 
   # 关联关系
-  has_many :users
+  has_one :user
 
   has_one   :footer
   accepts_nested_attributes_for :footer

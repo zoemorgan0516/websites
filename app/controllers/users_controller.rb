@@ -11,21 +11,12 @@ class UsersController < BaseController
   def new
     if current_user.role == "super"
       @user = User.new
-    else
-      @user = @current_site.users.new
     end
   end
 
    def create
      if current_user.role == "super"
       @user = User.new(user_params)
-     else
-      @user = @current_site.users.new(user_params)
-     end
-     if current_user.role != "super" && @user.role == "super"
-       @user = @user.delete(:role)
-       redirect_to users_path, notice: '用户没有权限'
-       return
      end
      if @user.save
        redirect_to users_path
@@ -71,9 +62,5 @@ class UsersController < BaseController
 
    def user_params
      params.require(:user).permit(:email, :password, :password_confirmation, :role, :site_id)
-   end
-
-   def set_title
-     @title = "站点管理员信息"
    end
 end

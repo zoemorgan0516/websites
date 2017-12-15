@@ -27,10 +27,8 @@ class Admin::SitesController < BaseController
   end
 
   def create
-    if current_user.role == "super"
+    if can? :manage, Site
         @site = Site.new(site_params)
-    else
-        @site = current_user.sites.build(site_params)
     end
     @site.save
     redirect_to admin_sites_path
@@ -39,6 +37,11 @@ class Admin::SitesController < BaseController
   def update
     @site.update(site_params)
     @site.footer.update
+    redirect_to admin_sites_path
+  end
+
+  def destroy
+    @site.destroy
     redirect_to admin_sites_path
   end
 

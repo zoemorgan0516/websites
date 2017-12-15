@@ -8,7 +8,7 @@ class Ability
       can :manage, User
     elsif user.role == 'admin'
       can [:update, :read], Site
-      can :manage, User
+      can [:update, :read], User
       can :manage, Category
       can :manage, Advantage
       can :manage, Content
