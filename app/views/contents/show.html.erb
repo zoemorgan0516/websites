@@ -1,8 +1,26 @@
-<td>
-  <% if @content.photos.present? %>
-     <% @content.photos.each do |i| %>
-        <img src="<%= i.avatar.url("zoe666") %>">
-     <% end %>
-  <% end %>
-</td>
-<td>
+<div class="intro">
+  <div class="sideMenu">
+    <h2><em>企业简介 / </em>intro</h2>
+    <ul id="list">
+
+    </ul>
+  </div>
+  <div class="read">
+    <p class="p1">
+      <span class="s1">
+       <strong>标题：<%= @content.title %></strong>
+       <br>
+       <br>
+       <%= @content.word %>
+      </span>
+    </p>
+     <p style="text-align:center">
+       <% if @content.photos.present? %>
+          <% @content.photos.each do |i| %>
+             <img src="<%= i.avatar.url("zoe666") %>">
+          <% end %>
+       <% end %>
+       <br>
+     </p>
+  </div>
+</div>
