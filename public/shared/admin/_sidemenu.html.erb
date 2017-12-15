@@ -16,7 +16,7 @@
           <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
             <span>平台管理</span>
           </li>
-          <% if can?  :manage, Site %>
+            <% if can?  :manage, Site %>
               <li class="<%= "active" if controller_name == "admin::sites" %>">
                 <a href="/admin/sites" class="auto">
                   <i class="glyphicon glyphicon-blackboard"></i>

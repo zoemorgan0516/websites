@@ -2,7 +2,7 @@ class Admin::SitesController < BaseController
   before_action :set_site, only: [:edit, :update]
   def index
     if can? :manage, Site
-    @sites = Site.all.page params[:page]
+      @sites = Site.all.page params[:page]
     elsif can? :update, Site
       @sites = Site.where(id: current_user.site_id).page params[:page]
     elsif can? :read, Site
@@ -52,6 +52,6 @@ class Admin::SitesController < BaseController
   end
 
   def site_params
-    params.require(:site).permit(:avatar, :site_name, :name, :domain, footer_attributes: [ :avatar, :company_number, :company_address ])
+    params.require(:site).permit(:avatar, :name, :domain, footer_attributes: [ :avatar, :company_number, :company_address ])
   end
 end
