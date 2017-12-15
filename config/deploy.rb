@@ -1,7 +1,8 @@
 require 'mina/rails'
 require 'mina/git'
+require 'mina/puma'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
-# require 'mina/rvm'    # for rvm support. (https://rvm.io)
+require 'mina/rvm'    # for rvm support. (https://rvm.io)
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -9,20 +10,23 @@ require 'mina/git'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :application_name, 'foobar'
-set :domain, 'foobar.com'
-set :deploy_to, '/var/www/foobar.com'
-set :repository, 'git://...'
+set :application_name, 'websites'
+set :domain, '103.202.139.216'
+set :deploy_to, '/var/www/websites'
+set :repository, 'https://github.com/zoemorgan0516/websites.git'
 set :branch, 'master'
 
 # Optional settings:
-#   set :user, 'foobar'          # Username in the server to SSH to.
+set :user, 'dmj2'          # Username in the server to SSH to.
 #   set :port, '30000'           # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
+
 
 # Shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # Some plugins already add folders to shared_dirs like `mina/rails` add `public/assets`, `vendor/bundle` and many more
 # run `mina -d` to see all folders and files already included in `shared_dirs` and `shared_files`
+set :shared_dirs, fetch(:shared_dirs, []).push('public/assets', 'pids', 'log', 'tmp/sockets', 'tmp/pids')
+set :shared_files, fetch(:shared_files, []).push('config/mongoid.yml', 'config/secrets.yml', 'config/puma.rb')
 # set :shared_dirs, fetch(:shared_dirs, []).push('public/assets')
 # set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
 
@@ -34,6 +38,7 @@ task :remote_environment do
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
+  invoke :'rvm:use', '2.4.1'
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
 end
 
@@ -41,6 +46,12 @@ end
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
   # command %{rbenv install 2.3.0 --skip-existing}
+  command %(mkdir -p "#{fetch(:deploy_to)}/shared/tmp/sockets")
+  command %(mkdir -p "#{fetch(:deploy_to)}/shared/tmp/pids")
+  command %(mkdir -p "#{fetch(:deploy_to)}/shared/pids")
+  command %(touch "#{fetch(:deploy_to)}/shared/config/mongoid.yml")
+  command %(touch "#{fetch(:deploy_to)}/shared/config/secrets.yml")
+  command %(touch "#{fetch(:deploy_to)}/shared/config/puma.rb")
 end
 
 desc "Deploys the current version to the server."
@@ -58,10 +69,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
-      end
+      invoke :'puma:hard_restart'
     end
   end
 
