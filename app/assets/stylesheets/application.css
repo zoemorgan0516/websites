@@ -29,6 +29,24 @@
 .nav .s{ float:left; width:3px; text-align:center; color:#D4D4D4; font-size:16px; }
 .nav h3 a{ display:block; width:124px; text-align:center; }
 
+/*advantage*/
+.info-default {
+  opacity: 0;
+  text-align: center;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  left: 10px;
+  z-index: 4;
+  color: #fff;
+  display:block;
+  position: absolute;
+  width: auto;
+ }
+ .persona-advantage:hover  .info-default {
+  opacity: 1
+ }
+
 /*copyright*/
 .footerbox{ width:100%; position: relative; bottom: 10px; background-color:#3f5267; padding-top:1px }
 .footer{ width:100%; margin:0 auto; padding-top:30px}

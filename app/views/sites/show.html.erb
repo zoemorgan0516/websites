@@ -7,24 +7,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-      .info-default {
-        opacity: 0;
-        text-align: center;
-        top: 0;
-        right: 10px;
-        bottom: 0;
-        left: 10px;
-        z-index: 4;
-        color: #fff;
-        display:block;
-        position: absolute;
-        width: auto;
-       }
-       .persona-advantage:hover  .info-default {
-        opacity: 1
-       }
-  </style>
 </head>
 <body>
   <!-- navbar and menu postiton -->
@@ -36,30 +18,7 @@
 
   <br>
   <br>
-
-  <div class="container">
-    <% @site.advantages.each do |advantage| %>
-       <div class="col-sm-4">
-           <div class="persona-advantage-1">
-               <a class="persona-advantage" href="">
-                       <div class="info-default">
-                           <h2><%= advantage.content %></h2>
-                       </div>
-                     <%= image_tag(advantage.avatar_url("zoe666")) %>
-               </a>
-           </div>
-       </div>
-    <% end %>
-  </div>
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <%= render "advantage" %>
   <br>
   <br>
 
