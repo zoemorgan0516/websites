@@ -2,7 +2,7 @@ class Admin::SitesController < BaseController
   before_action :set_site, only: [:edit, :update]
   def index
     if can? :manage, Site
-    @sites = Site.all.page params[:page]
+      @sites = Site.all.page params[:page]
     elsif can? :update, Site
       @sites = Site.where(id: current_user.site_id).page params[:page]
     elsif can? :read, Site
