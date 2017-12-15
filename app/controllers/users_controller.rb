@@ -1,20 +1,23 @@
-class UsersController < ApplicationController
-   before_action :authenticate_user!
-   load_and_authorize_resource
+class UsersController < BaseController
    before_action :set_user, only: [:edit, :update, :destroy, :show, :favorite, :unfavorite]
-   layout 'admin'
    def index
-      @users = User.all
-      @users = @users.page params[:page]
-   end
+      if current_user.role == "super"
+        @users = User.all.page params[:page]
+      else
+        @users = User.where(site_id: @current_site.id).page params[:page]
+      end
+  end
 
-   def new
+  def new
+    if current_user.role == "super"
       @user = User.new
-
-   end
+    end
+  end
 
    def create
-     @user = User.new(user_params)
+     if current_user.role == "super"
+      @user = User.new(user_params)
+     end
      if @user.save
        redirect_to users_path
      else
@@ -48,7 +51,7 @@ class UsersController < ApplicationController
 
    def unfavorite
        @user.unfavorite
-       redirect_to users_path  
+       redirect_to users_path
    end
 
    private
@@ -58,10 +61,6 @@ class UsersController < ApplicationController
    end
 
    def user_params
-     params.require(:user).permit(:user_name, :site_url, :email, :password, :password_confirmation, :role, :url_address_id)
-   end
-
-   def set_title
-     @title = "站点管理员信息"
+     params.require(:user).permit(:email, :password, :password_confirmation, :role, :site_id)
    end
 end

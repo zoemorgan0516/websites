@@ -1,11 +1,11 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     用户列表
-    <div class="pull-right">
-     <% if can? :create, User %>
-       <%= link_to "新建站点管理员", new_user_path, class: "btn btn-primary btn-xs" %>
-     <% end %>
-    </div>
+    <% if current_user.role == "super" %>>
+        <div class="pull-right">
+          <%= link_to "新建站点管理员", new_user_path, class: "btn btn-primary btn-xs" %>
+        </div>
+    <% end %>
   </div>
 
   <div class="table-responsive">

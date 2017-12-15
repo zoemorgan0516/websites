@@ -2,6 +2,7 @@ class Site
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  paginates_per 5
   # 站点logo
   mount_uploader :avatar,        AvatarUploader
   # 站点管理员姓名
@@ -11,14 +12,16 @@ class Site
   # 版权等
   field :site_copyright,         type: String
   # 站点名字
-  field :site_name,              type: String
-  #validates :site_name, presence: true
+  field :name,              type: String
+  #validates :name, presence: true
   # 站点域名
-  field :site_url,               type: String
-  # validates :site_url, presence: true
+
+  field :domain,               type: String
+  validates :domain, presence: true
+
 
   # 关联关系
-  belongs_to :user
+  has_one :user
 
   has_one   :footer
   accepts_nested_attributes_for :footer
