@@ -24,30 +24,30 @@
                   <span>多站点管理</span>
                 </a>
               </li>
-            <% elsif can? :update, Site %>
+          <% elsif can? :update, Site %>
               <li class="<%= "active" if controller_name == "admin::sites" %>">
                  <a href="/admin/sites/<%= current_user.site.id %>/edit" class="auto">
                   <i class="glyphicon glyphicon-blackboard"></i>
                   <span>站点管理</span>
                 </a>
               </li>
-            <% end %>
+          <% end %>
 
-            <% if can? :manage, User %>
+          <% if can? :manage, User %>
               <li class="<%= "active" if controller_name == "users" %>">
                 <a href="/managers" class="auto">
                   <i class="glyphicon glyphicon-user"></i>
                   <span>用户管理</span>
                 </a>
               </li>
-            <% else %>
+          <% else %>
               <li class="<%= "active" if controller_name == "users" %>">
                 <a href="/managers" class="auto">
                   <i class="glyphicon glyphicon-user"></i>
                   <span>账号管理</span>
                 </a>
               </li>
-            <% end %>
+          <% end %>
 
           <% if can? :manage, Category %>
               <li class="<%= "active" if controller_name == "admin::categories" %>">
