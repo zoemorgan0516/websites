@@ -15,8 +15,10 @@ class Site
   field :name,              type: String
   #validates :name, presence: true
   # 站点域名
+
   field :domain,               type: String
   validates :domain, presence: true
+
 
   # 关联关系
   has_one :user
@@ -25,9 +27,9 @@ class Site
   accepts_nested_attributes_for :footer
 
   has_many :categories
-  has_many :contents
   has_many :cooperations
   has_many :slider_pictures
   has_many :advantages
+  has_many :contents
 
 end

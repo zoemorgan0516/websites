@@ -40,9 +40,8 @@ class Admin::CooperationsController < ApplicationController
 
   def destroy
     @cooperation.destroy
-    redirect_to admin_cooperations_path(@site)    
+    redirect_to admin_cooperations_path(@site)
   end
-
 
   private
 

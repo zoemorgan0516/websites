@@ -41,6 +41,6 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:menu)
+    params.require(:category).permit(:menu, :menu_url)
   end
 end
