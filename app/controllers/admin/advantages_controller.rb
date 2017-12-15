@@ -51,6 +51,6 @@ class Admin::AdvantagesController < ApplicationController
   end
 
   def advantage_params
-    params.require(:advantage).permit(:content, :avatar)
+    params.require(:advantage).permit(:content, :avatar, :url)
   end
 end

@@ -3,6 +3,7 @@ class Advantage
   include Mongoid::Timestamps
   # 图片上的内容
   field :content,              type: String
+  field :url,                  type: String
   # 图片
   field :avatar, type: String
   mount_uploader :avatar,        AvatarUploader

@@ -49,6 +49,15 @@
               </li>
           <% end %>
 
+          <% if can? :read, Site %>
+              <li class="<%= "active" if controller_name == "sites" %>">
+                <a href="/sites/5a3354c9585ade14f7f3fd18" class="auto">
+                  <i class="fa fa-users"></i>
+                  <span>查看网站效果</span>
+                </a>
+              </li>
+          <% end %>
+
           <% if can? :manage, Category %>
               <li class="<%= "active" if controller_name == "admin::categories" %>">
                 <a href="/admin/categories" class="auto">
