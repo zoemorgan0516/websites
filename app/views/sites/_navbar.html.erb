@@ -1,5 +1,4 @@
 <!-- banner positon including navbar and site_copyright -->
-<div class="container-fluid">
   <div class="header">
     <div class="topNav">
       <!-- 显示当前公司站点的logo-->
@@ -7,9 +6,9 @@
       <div class="navBar">
         <ul class="nav clearfix">
             <% @site.categories.each do |category| %>
-              <h3><%= link_to category.menu, category.menu_url %></h3>
+              <td><%= link_to category.menu, category.menu_url %> </td>
             <% end %>
         </ul>
       </div>
+    </div>
   </div>
-</div>
