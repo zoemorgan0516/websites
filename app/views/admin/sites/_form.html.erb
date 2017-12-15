@@ -3,7 +3,7 @@
           <%= f.input :domain, label: "站点域名" %>
 
           <!-- navbar design -->
-          <% if current_user.role == "admin" %>
+
             <h3>网站导航设计</h3>
               <%= f.simple_fields_for :footer do |n| %>
                 <% if @site&.footer&.avatar_url %>
@@ -13,7 +13,7 @@
                 <%= n.input :company_number, label: "公司电话" %>
                 <%= n.input :company_address, label: "公司地址" %>
              <% end %>
-          <% end %>
+        
 
           <div class="line line-dashed b-b line-lg pull-in"></div>
           <div class="col-sm-10 col-sm-offset-2">
