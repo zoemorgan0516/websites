@@ -52,6 +52,6 @@ class Admin::SitesController < BaseController
   end
 
   def site_params
-    params.require(:site).permit(:avatar, :site_name, :name, :domain, footer_attributes: [ :avatar, :company_number, :company_address ])
+    params.require(:site).permit(:avatar, :site_name, :domain, footer_attributes: [ :avatar, :company_number, :company_address ])
   end
 end

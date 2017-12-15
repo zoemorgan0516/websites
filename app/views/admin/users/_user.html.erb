@@ -1,6 +1,6 @@
 <tr>
   <td><%= user.email %></td>
-  <td><%= !user.site.blank? ? user.site.site_url : "" %></td>
+  <td><%= !user.site.blank? ? user.site.domain : "" %></td>
   <td><%= user.role %></td>
   <td>
       <%= link_to "查看", user, class: "btn btn-default btn-xs" %>
