@@ -67,7 +67,7 @@
               </li>
           <% end %>
 
-          <% if can? :read, SliderPicture %>
+          <% if can? :manage, SliderPicture %>
             <li class="<%= "active" if controller_name == "admin::slider_pictures" %>">
               <a href="/admin/slider_pictures" class="auto">
                 <i class="fa fa-users"></i>
