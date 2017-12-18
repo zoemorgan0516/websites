@@ -29,6 +29,12 @@ Rails.application.routes.draw do
   resources :sites
   resources :contents
   resources :footers
+  resources :advantages
+  get "/page_1" => "advantages#page_1"
+  get "/page_2" => "advantages#page_2"
+  get "/page_3" => "advantages#page_3"
+  get "/page_4" => "advantages#page_4"
+  get "/page_5" => "advantages#page_1"
 
   root "welcome#index"
 end

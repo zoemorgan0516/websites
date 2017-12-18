@@ -93,6 +93,12 @@
                 <span>我们的优势栏管理</span>
               </a>
             </li>
+            <li class="<%= "active" if controller_name == "advantages" %>">
+              <a href="/advantages" class="auto">
+                <i class="fa fa-users"></i>
+                <span>我们的优势栏文章管理</span>
+              </a>
+            </li>
           <% end %>
 
           <% if can? :manage, Cooperation %>
