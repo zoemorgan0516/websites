@@ -49,7 +49,7 @@
               </li>
           <% end %>
 
-          <% if can? :read, Site %>
+          <% if current_user.role == "admin" %>
               <li class="<%= "active" if controller_name == "sites" %>">
                 <a href="/sites/<%= current_user.site.id %>" class="auto">
                   <i class="fa fa-users"></i>
