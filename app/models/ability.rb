@@ -11,6 +11,7 @@ class Ability
       can [:update, :read], User
       can :manage, Category
       can :manage, Advantage
+      can :manage, ContentsClass
       can :manage, Content
       can :manage, Cooperation
       can :manage, SliderPicture

@@ -5,53 +5,51 @@ class Admin::ContentsController < ApplicationController
   layout "admin"
 
   def index
-    @site = current_user.site
-    @contents = @site.contents
+    @contents = Content.where(contents_class_id: params[:contents_class_id]).page params[:page]
   end
 
-  def new
-    @content = Content.new
-    @photo = @content.photos.build
-  end
 
   def edit
   end
 
   def create
     @site = current_user.site
-    @content = @site.contents.new(content_params)
+    @contents_class = @site.contents_classes.find(params[:contents_class_id])
+    @content = @contents_class.contents.new(content_params)
+    @photo = @content.photos.build
     @content.save
-    redirect_to admin_contents_path(@site)
+    redirect_to admin_contents_path(contents_class_id: @content.contents_class_id)
       params[:photos]['avatar'].each do |i|
         @photo = @content.photos.create!(:avatar => i)
       end
-
   end
 
   def update
-    if @content.update(params.require(:content).permit!)
+    @site = current_user.site
+    @contents_class = @site.contents_classes.find(params[:contents_class_id])
+    @content = @contents_class.contents.update(content_params)
        if not params[:content].blank?
          params[:photos]['avatar'].each do |i|
            @photo = @content.photos.create!(:avatar => i)
          end
        end
-     end
-    redirect_to admin_contents_path(@site)
+      redirect_to admin_contents_path(contents_class_id: @content.contents_class_id)
   end
 
   def destroy
     @content.destroy
-    redirect_to admin_contents_path(@site)
+    redirect_to   redirect_to admin_contents_path(contents_class_id: @content.contents_class_id)
   end
 
   private
 
   def set_content
     @site = current_user.site
-    @content = @site.contents.find(params[:id])
+    @contents_class = @site.contents_classes.find(params[:contents_class_id])
+    @content = @contents_class.contents.find(params[:id])
   end
 
   def content_params
-    params.require(:content).permit(:title, :word, photos_attributes: [:id, :cooperation_id, :avatar])
+    params.require(:content).permit(:title, :word, photos_attributes: [:avatar])
   end
 end

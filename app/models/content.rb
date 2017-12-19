@@ -7,5 +7,5 @@ class Content
   field :word,        type: String
 
   has_many   :photos
-  belongs_to :site
+  belongs_to :contents_class
 end

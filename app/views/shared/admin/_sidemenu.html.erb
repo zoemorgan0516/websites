@@ -76,9 +76,9 @@
             </li>
           <% end %>
 
-          <% if can? :manage, Content %>
-            <li class="<%= "active" if controller_name == "admin::contents" %>">
-              <a href="/admin/contents" class="auto">
+          <% if can? :manage, ContentsClass %>
+            <li class="<%= "active" if controller_name == "admin::contents_classes" %>">
+              <a href="/admin/contents_classes" class="auto">
                 <i class="fa fa-users"></i>
                 <span>文字图片内容管理</span>
               </a>

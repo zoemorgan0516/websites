@@ -1,8 +1,8 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    菜单分类管理
+    内容管理
     <div class="pull-right">
-      <%= link_to "新建菜单", new_admin_content_path, class: "btn btn-primary btn-xs" %>
+      <%= link_to "新建文字图片内容", new_admin_content_path(contents_class_id: params[:contents_class_id]), class: "btn btn-primary btn-xs" %>
     </div>
   </div>
 
