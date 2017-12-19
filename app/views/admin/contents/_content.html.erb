@@ -1,4 +1,7 @@
 <tr>
+  <td>
+    <%= ContentsClass.find_by(contents_class_id: params[:content_class_id]).name %>
+  </td>
   <td><%= link_to content.title, admin_content_path(content) %></td>
   <td>
     <% if content.photos.each do |photo| %>
