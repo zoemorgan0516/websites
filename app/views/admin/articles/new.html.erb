@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+    <div class="panel-heading font-bold">
+        新建文章
+    </div>
+    <div class="panel-body">
+      <%= render "form", article: @article %>
+      <%= link_to 'Show', @article %>    |
+      <%= link_to 'Back', admin_articles_path %>
+    </div>
+</div>

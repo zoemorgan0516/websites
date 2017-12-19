@@ -1,4 +1,4 @@
-class Admin::ArticlesController < ApplicationController
+class ArticlesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
   before_action :set_article, only: [:edit, :update, :show]
@@ -22,7 +22,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
-       redirect_to admin_articles_path
+       redirect_to articles_path
     else
       render :new
     end
@@ -30,7 +30,7 @@ class Admin::ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-       redirect_to admin_articles_path
+       redirect_to articles_path
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class Admin::ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    redirect_to admin_articles_path
+    redirect_to articles_path
   end
 
   private
