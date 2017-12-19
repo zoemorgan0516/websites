@@ -38,7 +38,7 @@ class Admin::ContentsController < ApplicationController
 
   def destroy
     @content.destroy
-    redirect_to   redirect_to admin_contents_path(contents_class_id: @content.contents_class_id)
+    redirect_to admin_contents_path(contents_class_id: @content.contents_class_id)
   end
 
   private
