@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= raw @article.content %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @article.from %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @article.url %>
+</p>
+
+<p>
+  <strong>图片:</strong>
+  <% if not @article&.avatar&.url.blank? %>
+  <img src="<%= @article.avatar.url('40') %>">
+  <% end %>
+</p>
+
+<div class="line line-dashed b-b line-lg pull-in"></div>
+
+
+
+<%= link_to '返回首页', admin_articles_path ,class: "btn btn-default"%>

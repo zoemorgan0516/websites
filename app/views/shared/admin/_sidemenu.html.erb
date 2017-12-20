@@ -58,6 +58,15 @@
               </li>
           <% end %>
 
+          <% if can? :manage, Article %>
+              <li class="<%= "active" if controller_name == "articles" %>">
+                <a href="/articles" class="auto">
+                  <i class="glyphicon glyphicon-user"></i>
+                  <span>前台博客</span>
+                </a>
+              </li>
+          <% end %>
+
           <% if current_user.role == "admin" %>
               <li class="<%= "active" if controller_name == "sites" %>">
                 <a href="/sites/<%= current_user.site.id %>" class="auto">

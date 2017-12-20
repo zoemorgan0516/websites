@@ -1,15 +1,7 @@
 
 <div class="panel panel-default">
-  <form action="/articles" method="get">
-  title<input type="text" id="title" name="title" value="<%= params[:title] %>">
-  content<input type="text" id="content" name="content" value="<%= params[:content] %>">
-  <input type="submit" name="" value="搜索" class="btn btn-primary">
-</form>
   <div class="panel-heading">
     文章列表
-    <div class="pull-right">
-      <%= link_to "新建文章", new_article_path, class: "btn btn-primary btn-xs" %>
-    </div>
   </div>
   <div class="table-responsive">
     <table style="table-layout:fixed" class="table table-striped b-t b-light">
