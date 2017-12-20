@@ -3,11 +3,10 @@
      <div class="col-sm-4">
          <br>
          <div class="persona-advantage-1">
-             <a class="persona-advantage" >
-               <div class="info-default">
-                   <h2><%= content.title %></h2>
-               </div>
-               <% if content.photos.present? %>
+             <div class="info-default">
+                 <h2><%= content.title %></h2>
+             </div>
+                  <a class="persona-advantage" href="<%= content.word %>">               <% if content.photos.present? %>
                   <% content.photos.each do |i| %>
                      <img src="<%= i.avatar.url("zoe666") %>">
                   <% end %>

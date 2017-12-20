@@ -13,21 +13,24 @@
     <div class="carousel-inner">
 
       <div class="item active" style="opacity: 0.9;">
-        <%= image_tag(@site.slider_pictures.second.avatar_url) %>
+        <%= image_tag(ContentsClass.find_by("id": "5a3a124d3cfe06d022138a54").contents.second.photos.first.avatar_url) %>
         <div class="carousel-caption">
-          <h3><%= @site.slider_pictures.second.content %></h3>
+          <h3><%= ContentsClass.find_by("id": "5a3a124d3cfe06d022138a54").contents.second.title %></h3>
         </div>
       </div>
 
-
-    <% @site.slider_pictures.each do |slider_picture| %>
-      <div class="item" style="opacity: 0.9;">
-        <%= image_tag(slider_picture.avatar_url) %>
-        <div class="carousel-caption">
-          <h3><%= slider_picture.content %></h3>
-        </div>
-      </div>
-    <% end %>
+      <% ContentsClass.find_by("id": "5a3a124d3cfe06d022138a54").contents.each do |content| %>
+       <% if content.photos.present? %>
+          <% content.photos.each do |i| %>
+            <div class="item" style="opacity: 0.9;">
+               <img src="<%= i.avatar.url("zoe666") %>">
+               <div class="carousel-caption">
+                 <h3><%= content.title %></h3>
+               </div>
+             </div>
+          <% end %>
+        <% end %>
+      <% end %>
 
     </div>
 
