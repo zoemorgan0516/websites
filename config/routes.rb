@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   end
 # 前台网站展示路径
   resources :sites
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   resources :contents
   resources :footers
 

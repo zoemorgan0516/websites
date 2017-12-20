@@ -56,6 +56,7 @@ class User
   ## 关联关系
   belongs_to :site
   has_many :articles
+  has_many :comments
 
 
 end
