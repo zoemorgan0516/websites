@@ -27,13 +27,15 @@ class Admin::ContentsController < ApplicationController
   def update
     @site = current_user.site
     @contents_class = @site.contents_classes.find(params[:contents_class_id])
-    @content = @contents_class.contents.update(content_params)
-       if not params[:content].blank?
+    @content = @contents_class.contents.find(params[:id])
+    if @content.update(content_params)
+       if not params[:photos].blank?
          params[:photos]['avatar'].each do |i|
            @photo = @content.photos.create!(:avatar => i)
          end
        end
-      redirect_to admin_contents_path(contents_class_id: @content.contents_class_id)
+    end
+    redirect_to admin_contents_path(contents_class_id: @content.contents_class_id)
   end
 
   def destroy
@@ -50,6 +52,7 @@ class Admin::ContentsController < ApplicationController
   end
 
   def content_params
+    logger.debug params[:content]
     params.require(:content).permit(:title, :word, photos_attributes: [:avatar])
   end
 end

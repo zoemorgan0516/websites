@@ -1,5 +1,5 @@
-<%= simple_form_for [:admin, @content] do |f| %>
-  <%= f.input :word,  label: "标题"  %>
+<%= simple_form_for([:admin, @content], url: admin_content_path(contents_class_id: params[:contents_class_id]), :method => :put) do |f| %>
+  <%= f.input :title,  label: "标题"  %>
   <%= f.input :word,  label: "文字内容"  %>
   <!-- 显示图片,并可删除图片 -->
   <% @content.photos.all.each do |photo| %>
