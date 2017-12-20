@@ -76,33 +76,6 @@
             </li>
           <% end %>
 
-          <% if can? :manage, SliderPicture %>
-            <li class="<%= "active" if controller_name == "admin::slider_pictures" %>">
-              <a href="/admin/slider_pictures" class="auto">
-                <i class="fa fa-users"></i>
-                <span>滑动图片栏管理</span>
-              </a>
-            </li>
-          <% end %>
-
-          <% if can? :manage, Advantage %>
-            <li class="<%= "active" if controller_name == "admin::advantages" %>">
-              <a href="/admin/advantages" class="auto">
-                <i class="fa fa-users"></i>
-                <span>我们的优势栏管理</span>
-              </a>
-            </li>
-          <% end %>
-
-          <% if can? :manage, Cooperation %>
-            <li class="<%= "active" if controller_name == "admin::cooperations" %>">
-              <a href="/admin/cooperations" class="auto">
-                <i class="fa fa-users"></i>
-                <span>合作伙伴管理</span> </a>
-            </li>
-          <% end %>
-
-
           <li class="line dk hidden-folded"></li>
         </ul>
       </nav>
