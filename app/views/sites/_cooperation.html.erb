@@ -1,13 +1,12 @@
 <div class="container">
-  <% ContentsClass.find_by("id": "5a3a125f3cfe06d022138a57").contents.each do |content| %>
+  <% ContentsClass.find_by("id": "5a3a08003cfe06d022138a35").contents.each do |content| %>
      <div class="col-sm-4">
          <br>
          <div class="persona-advantage-1">
              <div class="info-default">
                  <h2><%= content.title %></h2>
              </div>
-             <a class="persona-advantage" href="/contents/<%= content.id %>">
-               <% if content.photos.present? %>
+                  <a class="persona-advantage" href="<%= content.word %>">               <% if content.photos.present? %>
                   <% content.photos.each do |i| %>
                      <img src="<%= i.avatar.url("zoe666") %>">
                   <% end %>

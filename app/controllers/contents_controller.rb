@@ -4,7 +4,7 @@ class ContentsController < ApplicationController
   # GET /contents
   # GET /contents.json
   def index
-    @contents = Content.all
+    @contents = Content.where(contents_class_id: params[:contents_class_id]).page params[:page]
   end
 
   # GET /contents/1

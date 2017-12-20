@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :navbars
   devise_for :users
+
 ## 后台权限管理
 # 账号管理
   resources :users, path: :managers do
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 # 后台网站板式组成部分的路径
   namespace :admin do
+    resources :contents_classes
     resources :sites
     resources :url_addresses
     resources :footers
@@ -29,6 +30,8 @@ Rails.application.routes.draw do
   resources :sites
   resources :contents
   resources :footers
+  resources :contents_classes
+  resources :navbars
 
   root "welcome#index"
 end

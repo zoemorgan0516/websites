@@ -10,10 +10,8 @@ class Ability
       can [:update, :read], Site
       can [:update, :read], User
       can :manage, Category
-      can :manage, Advantage
+      can :manage, ContentsClass
       can :manage, Content
-      can :manage, Cooperation
-      can :manage, SliderPicture
     elsif user.role == 'user'
       alias_action :read, :to => :welcome
       can :read, Site
