@@ -55,6 +55,7 @@ class User
 
   ## 关联关系
   belongs_to :site
+  has_many :emails
 
 
 end

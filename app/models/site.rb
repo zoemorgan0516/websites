@@ -31,5 +31,6 @@ class Site
   has_many :slider_pictures
   has_many :advantages
   has_many :contents
+  has_many :emails
 
 end
