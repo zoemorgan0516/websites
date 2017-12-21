@@ -1,37 +1,45 @@
 <div class="container">
-   <div class="col-sm-4">
-   <br>
-   <div class="persona-advantage-1">
+  <div class="col-sm-12">
+     <div class="col-sm-4">
+       <div class="persona-advantage-1">
+          <div class="info-default">
+              <h2><%= @site.advantage_string1 %></h2>
+          </div>
+          <img src="<%= @site.advantage_pics.first.avatar.url("zoe666") %>">
+       </div>
+     </div>
+     <div class="col-sm-4">
        <div class="info-default">
            <h2><%= @site.advantage_string1 %></h2>
        </div>
-       <img src="<%= @site.advantage_pics.first.avatar.url("zoe666") %>">
-
-       <div class="info-default">
-           <h2><%= @site.advantage_string2 %></h2>
-       </div>
        <img src="<%= @site.advantage_pics.second.avatar.url("zoe666") %>">
-
+     </div>
+     <div class="col-sm-4">
        <div class="info-default">
-           <h2><%= @site.advantage_string3 %></h2>
+           <h2><%= @site.advantage_string1 %></h2>
        </div>
        <img src="<%= @site.advantage_pics.third.avatar.url("zoe666") %>">
-
+     </div>
+  </div>
+  <br>
+  <div class="col-sm-12">
+     <div class="col-sm-4">
        <div class="info-default">
-           <h2><%= @site.advantage_string4 %></h2>
+           <h2><%= @site.advantage_string1 %></h2>
        </div>
        <img src="<%= @site.advantage_pics.fourth.avatar.url("zoe666") %>">
-
+     </div>
+     <div class="col-sm-4">
        <div class="info-default">
-           <h2><%= @site.advantage_string5 %></h2>
+           <h2><%= @site.advantage_string1 %></h2>
        </div>
        <img src="<%= @site.advantage_pics.fifth.avatar.url("zoe666") %>">
-
+     </div>
+     <div class="col-sm-4">
        <div class="info-default">
-           <h2><%= @site.advantage_string6 %></h2>
+           <h2><%= @site.advantage_string1 %></h2>
        </div>
        <img src="<%= @site.advantage_pics.last.avatar.url("zoe666") %>">
-
-   </div>
+     </div>
   </div>
 </div>
