@@ -13,15 +13,13 @@
     <div class="carousel-inner">
 
       <div class="item active" style="opacity: 0.9;">
-        <%= image_tag(ContentsClass.find_by("id": "5a3a124d3cfe06d022138a54").contents.second.photos.first.avatar_url) %>
         <div class="carousel-caption">
-          <h3><%= ContentsClass.find_by("id": "5a3a124d3cfe06d022138a54").contents.second.title %></h3>
+          <h3><%= @site.photos.second.avatar.url("zoe666") %></h3>
         </div>
       </div>
 
-      <% ContentsClass.find_by("id": "5a3a124d3cfe06d022138a54").contents.each do |content| %>
-       <% if content.photos.present? %>
-          <% content.photos.each do |i| %>
+       <% if @site.photos.present? %>
+          <% @site.photos.each do |i| %>
             <div class="item" style="opacity: 0.9;">
                <img src="<%= i.avatar.url("zoe666") %>">
                <div class="carousel-caption">
@@ -30,7 +28,6 @@
              </div>
           <% end %>
         <% end %>
-      <% end %>
 
     </div>
 

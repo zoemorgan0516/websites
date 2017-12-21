@@ -3,6 +3,12 @@
     <div class="topNav">
       <!-- 显示当前公司站点的logo-->
       <img class="logo" src="<%= @site.avatar.url("zoe666") %>" >
+      <% if @site.photos.present? %>
+         <% @site.photos.each do |i| %>
+            <img src="<%= i.avatar.url("zoe666") %>">
+         <% end %>
+      <% end %>
+      <!-- 显示菜单内容 -->
       <div class="navBar">
         <ul class="nav clearfix">
             <% @site.categories.each do |category| %>
