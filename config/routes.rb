@@ -24,12 +24,8 @@ Rails.application.routes.draw do
     end
     resources :contents_classes
     resources :sites
-<<<<<<< HEAD
     resources :articles
-=======
     resources :emails
->>>>>>> 17f547689cf580377f48636b3fcc30c0817b3885
-    resources :url_addresses
     resources :footers
     resources :categories
     resources :contents
@@ -44,13 +40,11 @@ Rails.application.routes.draw do
   end
 # 前台网站展示路径
   resources :sites
-<<<<<<< HEAD
   resources :articles do
     resources :comments
   end
-=======
+
   resources :emails
->>>>>>> 17f547689cf580377f48636b3fcc30c0817b3885
   resources :contents
   resources :footers
   resources :contents_classes
