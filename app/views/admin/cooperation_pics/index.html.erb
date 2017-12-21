@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Cooperation Pics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_cooperation_pics.each do |admin_cooperation_pic| %>
+      <tr>
+        <td><%= link_to 'Show', admin_cooperation_pic %></td>
+        <td><%= link_to 'Edit', edit_admin_cooperation_pic_path(admin_cooperation_pic) %></td>
+        <td><%= link_to 'Destroy', admin_cooperation_pic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Cooperation Pic', new_admin_cooperation_pic_path %>
