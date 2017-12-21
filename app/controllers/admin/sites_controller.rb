@@ -37,6 +37,13 @@ class Admin::SitesController < BaseController
   def update
     @site.update(site_params)
     @site.footer.update
+    if @site.update(site_params)
+       if not params[:photos].blank?
+         params[:photos]['avatar'].each do |i|
+           @photo = @site.photos.create!(:avatar => i)
+         end
+       end
+    end
     redirect_to admin_sites_path
   end
 

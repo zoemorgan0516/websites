@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
 ## 后台权限管理
@@ -11,6 +12,16 @@ Rails.application.routes.draw do
   end
 # 后台网站板式组成部分的路径
   namespace :admin do
+    resources :advantage_pics do
+      member do
+        delete 'delete'
+      end
+    end
+    resources :cooperation_pics do
+      member do
+        delete 'delete'
+      end
+    end
     resources :contents_classes
     resources :sites
     resources :url_addresses
@@ -32,6 +43,8 @@ Rails.application.routes.draw do
   resources :footers
   resources :contents_classes
   resources :navbars
+  resources :cooperation_pics
+  resources :advantage_pics
 
   root "welcome#index"
 end
