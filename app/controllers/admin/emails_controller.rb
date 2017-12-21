@@ -9,9 +9,9 @@ class Admin::EmailsController < ApplicationController
     @emails = @site.emails.all.page params[:page]
   end
 
-  def new
-    @email = Email.new
-  end
+  # def new
+  #   @email = Email.new
+  # end
 
   def edit
   end
@@ -19,14 +19,14 @@ class Admin::EmailsController < ApplicationController
   def show
   end
 
-  def create
-    @site = current_user.site
-    @email = @site.emails.new(email_params)
-    @email.user = current_user
-    @email.save
-    EmailMailer.notify_email_placed(@email).deliver!
-    redirect_to admin_emails_path(@site)
-  end
+  # def create
+  #   @site = current_user.site
+  #   @email = @site.emails.new(email_params)
+  #   @email.user = current_user
+  #   @email.save
+  #   EmailMailer.notify_email_placed(@email).deliver!
+  #   redirect_to admin_emails_path(@site)
+  # end
 
   def update
     if @email.update(email_params)
