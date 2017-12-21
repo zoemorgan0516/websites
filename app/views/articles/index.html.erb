@@ -1,33 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <br>
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>博客文章列表</h2>
+      </div>
+      <div class="table-responsive">
+        <table style="table-layout:fixed" class="table table-striped b-t b-light">
+          <thead>
+            <tr>
+              <th width="10%">文章标题</th>
+             <!--  <th width="20%">Content</th> -->
+              <th width="10%">文章来源</th>
+              <th width="10%">文章转载地址</th>
+              <th style="width:150px;">创建时间</th>
+              <th width="15%">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render(@articles) %>
+          </tbody>
+        </table>
+        <br>
+        <br>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    文章列表
-  </div>
-  <div class="table-responsive">
-    <table style="table-layout:fixed" class="table table-striped b-t b-light">
-      <thead>
-        <tr>
-          <th width="10%">Title</th>
-         <!--  <th width="20%">Content</th> -->
-          <th width="10%">From</th>
-          <th width="10%">Url</th>
-          <th style="width:150px;">创建时间</th>
-          <th width="15%">操作</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render(@articles) %>
-      </tbody>
-    </table>
-    <footer class="panel-footer">
-      <%= render partial: "shared/admin/paginate", locals: { object: @articles } %>
-    </footer>
+        <footer class="panel-footer">
+          <%= render partial: "shared/admin/paginate", locals: { object: @articles } %>
+        </footer>
+      </div>
+    </div>
   </div>
 </div>
-<!-- <script type="text/javascript">
-  function search() {
-    var title = $('#title').val()
-    var content = $('#content').val()
-    window.location.href = “'/articles/?title=' + title + '||' + 'content=' + content”
-  }
-</script> -->

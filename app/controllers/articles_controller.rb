@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show]
-  layout 'admin'
+
 
   def index
     @articles = current_user.articles.page params[:page]
@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
   def show
     @comments = @article.comments
-    @comment = Comment.new 
+    @comment = Comment.new
   end
 
   private
