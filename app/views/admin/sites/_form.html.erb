@@ -2,12 +2,31 @@
   <%= f.input :name,  label: "站点名字" %>
   <%= f.input :domain, label: "站点域名" %>
   <%= f.input :avatar, label: "navbar网站logo" %>
+
+  <!-- slider_pictures -->
+  <h5>滑动图片位置（请选三张）</h5>
+  <%= f.simple_fields_for :photos do |a| %>
+    <%= a.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+  <% end %>
+
+  <!-- advantage_pictures -->
+  <h5>优势图片位置（请选三张）</h5>
+  <%= f.simple_fields_for :advantage_pics do |a| %>
+    <%= a.file_field :avatar, :multiple => true, name: "advantage_pics[avatar][]" %>
+  <% end %>
+
+  <!-- cooperation_pictures -->
+  <h5>合作伙伴图片位置（请选三张）</h5>
+  <%= f.simple_fields_for :cooperation_pics do |a| %>
+    <%= a.file_field :avatar, :multiple => true, name: "cooperation_pics[avatar][]" %>
+  <% end %>
+
   <!-- 网站footer设计 design -->
   <%= f.simple_fields_for :footer do |n| %>
     <% if @site&.footer&.avatar_url %>
        <img src="/<%= @site.footer.avatar_url %>" alt="">
     <% end %>
-    <%= n.input :avatar, as: :file, label: "footer网站logo" %>
+    <%= n.input :avatar, as: :file, label: "公司网站二维码" %>
     <%= n.input :company_number, label: "公司电话" %>
     <%= n.input :company_address, label: "公司地址" %>
   <% end %>
