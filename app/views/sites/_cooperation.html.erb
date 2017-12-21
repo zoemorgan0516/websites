@@ -1,17 +1,17 @@
 <div class="container">
-  <div class="col-sm-4">
-     <br>
-     <div class="persona-advantage-1">
-        <div class="info-default">
-          <h2><%= @site.cooperation_string %></h2>
-        </div>
-        <a class="persona-advantage" href="/">
-           <% if @site.cooperation_pics.present? %>
-              <% @site.cooperation_pics.each do |i| %>
-                <img src="<%= i.avatar.url("zoe666") %>">
-              <% end %>
-           <% end %>
-         </a>
+  <h2>
+    <div class="position:center">
+      <%= @site.cooperation_string %>
+    </div>
+  </h2>
+  <% @site.cooperation_pics.each do |cooperation_pic| %>
+     <div class="col-sm-3">
+         <br>
+         <div class="persona-advantage-1">
+            <a class="persona-advantage" href="/<%= @site.cooperation_url%>">
+              <img src="<%= cooperation_pic.avatar.url("zoe666") %>">
+            </a>
+         </div>
      </div>
-  </div>
+  <% end %>
 </div>
