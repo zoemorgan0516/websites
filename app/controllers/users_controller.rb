@@ -32,11 +32,16 @@ class UsersController < BaseController
    end
 
    def update
-     if @user.update(user_params)
+    if params[:user][:password].blank?
+       params[:user].delete(:password)
+       params[:user].delete(:password_confirmation)
+    end
+    if @user.update(user_params)
        redirect_to users_path
-     else
+    else
        render :edit
-     end
+    end
+
    end
 
    def destroy
@@ -61,6 +66,7 @@ class UsersController < BaseController
    end
 
    def user_params
-     params.require(:user).permit(:email, :password, :password_confirmation, :role, :site_id)
+     params.require(:user).permit(:email, :role, :site_id, :password, :password_confirmation)
    end
+
 end

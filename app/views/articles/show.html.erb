@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= raw @article.content %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @article.from %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @article.url %>
+</p>
+
+<p>
+  <strong>图片:</strong>
+  <% if not @article&.avatar&.url.blank? %>
+  <img src="<%= @article.avatar.url('40') %>">
+  <% end %>
+</p>
+
+<div class="line line-dashed b-b line-lg pull-in"></div>
+
+<%= link_to '返回首页', admin_articles_path ,class: "btn btn-default"%>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="panel panel-default">
+    <div class="pull-right">
+      <%= link_to "写评论", new_article_comment_path(@article), class: "btn btn-primary btn-xs" %>
+    </div>
+    <div class="panel-body">
+      <%= simple_form_for [@article, @comment] do |f| %>
+          <%= f.input :content,              label: "评论" %>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+          <div class="col-sm-10 col-sm-offset-2">
+              <%= f.button :submit, "提 交", class: "btn btn-primary" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+<div class="panel panel-default">
+  <div class="table-responsive">
+    <table class="table table-striped b-t b-light">
+    <thead>
+      <tr>
+        <th>评论内容</th>
+        <th>评论作者</th>
+      </thead>
+      <tbody>
+        <% @comments.each do |comment| %>
+          <tr>
+            <td><%= comment.content %></td>
+            <td><%= comment.user.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

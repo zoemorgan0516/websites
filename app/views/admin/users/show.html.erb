@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>发件人姓名</strong>
+  <%= @email.name%>
+</p>
+
+<p>
+  <strong>发件人联系邮箱</strong>
+  <%= @email.email_address %>
+</p>
+
+<p>
+  <strong>邮件内容</strong>
+  <%= raw @email.content %>
+</p>
+
+
+<%= link_to '返回首页', admin_emails_path(@site) ,class: "btn btn-default"%>

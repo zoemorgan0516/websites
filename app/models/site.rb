@@ -39,6 +39,8 @@ class Site
   accepts_nested_attributes_for :footer
 
   has_many :categories
+
+  has_many :emails
   has_many :contents_classes
   has_many :photos
   has_many :advantage_pics

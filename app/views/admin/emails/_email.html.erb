@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to email.name, admin_email_path(email) %></td>
+  <td><%= email.email_address %></td>
+  <td><%= email.content %></td>
+  <td>
+    <%= link_to("编辑", edit_admin_email_path(email), class: "btn btn-xs btn-primary")%>|
+    <%= link_to("删除", admin_email_path(email), method: :delete, class: "btn btn-xs btn-primary")%>
+  </td>
+</tr>
