@@ -76,6 +76,15 @@
               </li>
           <% end %>
 
+          <% if can? :manage, Email %>
+              <li class="<%= "active" if controller_name == "emails" %>">
+                <a href="/emails/new" class="auto">
+                  <i class="fa fa-users"></i>
+                  <span>查看发送邮件效果</span>
+                </a>
+              </li>
+          <% end %>
+
           <% if current_user.role == "admin" %>
               <li class="<%= "active" if controller_name == "sites" %>">
                 <a href="/sites/<%= current_user.site.id %>" class="auto">
