@@ -49,7 +49,6 @@
               </li>
           <% end %>
 
-<<<<<<< HEAD
           <% if can? :manage, Article %>
               <li class="<%= "active" if controller_name == "admin::articles" %>">
                 <a href="/admin/articles" class="auto">
@@ -64,13 +63,15 @@
                 <a href="/articles" class="auto">
                   <i class="glyphicon glyphicon-user"></i>
                   <span>前台博客</span>
-=======
+                </a>
+              </li>
+          <% end %>
+
           <% if can? :manage, Email %>
               <li class="<%= "active" if controller_name == "admin::emails" %>">
                 <a href="/admin/emails" class="auto">
                   <i class="fa fa-users"></i>
                   <span>邮件管理</span>
->>>>>>> 17f547689cf580377f48636b3fcc30c0817b3885
                 </a>
               </li>
           <% end %>

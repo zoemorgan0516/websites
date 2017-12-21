@@ -55,12 +55,9 @@ class User
 
   ## 关联关系
   belongs_to :site
-<<<<<<< HEAD
   has_many :articles
   has_many :comments
-=======
   has_many :emails
->>>>>>> 17f547689cf580377f48636b3fcc30c0817b3885
 
 
 end
