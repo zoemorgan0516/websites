@@ -13,21 +13,21 @@
     <div class="carousel-inner">
 
       <div class="item active" style="opacity: 0.9;">
-        <%= image_tag(@site.slider_pictures.second.avatar_url) %>
         <div class="carousel-caption">
-          <h3><%= @site.slider_pictures.second.content %></h3>
+          <h3><%= @site.photos.second.avatar.url("zoe666") %></h3>
         </div>
       </div>
 
-
-    <% @site.slider_pictures.each do |slider_picture| %>
-      <div class="item" style="opacity: 0.9;">
-        <%= image_tag(slider_picture.avatar_url) %>
-        <div class="carousel-caption">
-          <h3><%= slider_picture.content %></h3>
-        </div>
-      </div>
-    <% end %>
+       <% if @site.photos.present? %>
+          <% @site.photos.each do |i| %>
+            <div class="item" style="opacity: 0.9;">
+               <img src="<%= i.avatar.url("zoe666") %>">
+               <div class="carousel-caption">
+                 <h3><%= content.title %></h3>
+               </div>
+             </div>
+          <% end %>
+        <% end %>
 
     </div>
 

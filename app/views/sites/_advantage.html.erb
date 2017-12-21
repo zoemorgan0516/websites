@@ -1,13 +1,17 @@
 <div class="container">
-  <% @site.advantages.each do |advantage| %>
+  <% ContentsClass.find_by("id": "5a3a125f3cfe06d022138a57").contents.each do |content| %>
      <div class="col-sm-4">
          <br>
          <div class="persona-advantage-1">
-             <a class="persona-advantage" href="<%= advantage.url %>">
-                     <div class="info-default">
-                         <h2><%= advantage.content %></h2>
-                     </div>
-                   <%= image_tag(advantage.avatar_url("zoe666")) %>
+             <div class="info-default">
+                 <h2><%= content.title %></h2>
+             </div>
+             <a class="persona-advantage" href="/contents/<%= content.id %>">
+               <% if content.photos.present? %>
+                  <% content.photos.each do |i| %>
+                     <img src="<%= i.avatar.url("zoe666") %>">
+                  <% end %>
+               <% end %>
              </a>
          </div>
      </div>
