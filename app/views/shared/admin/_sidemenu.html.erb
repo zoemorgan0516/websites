@@ -49,6 +49,15 @@
               </li>
           <% end %>
 
+          <% if can? :manage, Email %>
+              <li class="<%= "active" if controller_name == "admin::emails" %>">
+                <a href="/admin/emails" class="auto">
+                  <i class="fa fa-users"></i>
+                  <span>邮件管理</span>
+                </a>
+              </li>
+          <% end %>
+
           <% if current_user.role == "admin" %>
               <li class="<%= "active" if controller_name == "sites" %>">
                 <a href="/sites/<%= current_user.site.id %>" class="auto">
