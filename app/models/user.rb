@@ -59,5 +59,4 @@ class User
   has_many :comments
   has_many :emails
 
-
 end

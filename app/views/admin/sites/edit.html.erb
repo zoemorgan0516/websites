@@ -6,6 +6,7 @@
 
   <!-- slider_pictures -->
   <!-- 显示图片,并可删除图片 -->
+  <h4>滑动图片</h4>
   <% @site.photos.all.each do |photo| %>
   <div id="<%= photo.id %>">
     <img src="<%= photo.avatar_url("zoe666") %>" >
@@ -18,13 +19,15 @@
   <%= f.simple_fields_for :photos do |a| %>
     <%= a.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
   <% end %>
-  <h5>滑动图片配置文字</h5>
+  <br>
+  <h4>滑动图片配置文字</h4>
   <%= f.input :slider_string1, label: "滑动图片1配置文字" %>
   <%= f.input :slider_string1, label: "滑动图片2配置文字" %>
   <%= f.input :slider_string1, label: "滑动图片3配置文字" %>
   <br>
 
   <!-- advantage_pictures -->
+  <h4>优势图片</h4>
   <% @site.advantage_pics.all.each do |advantage_pic| %>
   <div id="<%= advantage_pic.id %>">
     <img src="<%= advantage_pic.avatar_url("zoe666") %>" >
@@ -37,7 +40,8 @@
   <%= f.simple_fields_for :advantage_pics do |a| %>
     <%= a.file_field :avatar, :multiple => true, name: "advantage_pics[avatar][]" %>
   <% end %>
-  <h5>优势图片配置文字</h5>
+  <br>
+  <h4>优势图片配置文字</h4>
   <%= f.input :advantage_string1, label: "优势图片1配置文字" %>
   <%= f.input :advantage_string2, label: "优势图片2配置文字" %>
   <%= f.input :advantage_string3, label: "优势图片3配置文字" %>
@@ -48,6 +52,7 @@
 
 
   <!-- cooperation_pictures -->
+  <h4>合作伙伴图片</h4>
   <% @site.cooperation_pics.all.each do |cooperation_pic| %>
   <div id="<%= cooperation_pic.id %>">
     <img src="<%= cooperation_pic.avatar_url("zoe666") %>" >
@@ -60,6 +65,8 @@
   <%= f.simple_fields_for :cooperation_pics do |a| %>
     <%= a.file_field :avatar, :multiple => true, name: "cooperation_pics[avatar][]" %>
   <% end %>
+  <br>
+  <h4>合作伙伴图片配置文字</h4>
   <%= f.input :cooperation_string, label: "合作伙伴图片配置文字" %>
   <br>
   <br>
