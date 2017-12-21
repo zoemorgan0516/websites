@@ -6,9 +6,13 @@
       <!-- 显示菜单内容 -->
       <div class="navBar">
         <ul class="nav clearfix">
+          <h4>
             <% @site.categories.each do |category| %>
-              <td><%= link_to category.menu, category.menu_url %> </td>
+              <td><%= link_to category.menu, category.menu_url %>
+              | 
+              </td>
             <% end %>
+          </h4>
         </ul>
       </div>
     </div>
