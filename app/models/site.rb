@@ -27,6 +27,8 @@ class Site
   field :advantage_string6,            type: String
   # 站点cooperation配图文字
   field :cooperation_string,            type: String
+  # 站点cooperation配图链接
+  field :cooperation_url,            type: String
 
   field :domain,               type: String
   validates :domain, presence: true
