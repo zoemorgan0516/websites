@@ -26,7 +26,6 @@ Rails.application.routes.draw do
     resources :sites
     resources :articles
     resources :emails
-    resources :url_addresses
     resources :footers
     resources :categories
     resources :contents
@@ -44,7 +43,6 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
-  
   resources :emails
   resources :contents
   resources :footers
