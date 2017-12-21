@@ -22,7 +22,9 @@ class Admin::EmailsController < ApplicationController
   def create
     @site = current_user.site
     @email = @site.emails.new(email_params)
+    @email.user = current_user
     @email.save
+    EmailMailer.notify_email_placed(@email).deliver!
     redirect_to admin_emails_path(@site)
   end
 
