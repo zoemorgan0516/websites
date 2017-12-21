@@ -25,6 +25,14 @@ class Site
   field :advantage_string4,            type: String
   field :advantage_string5,            type: String
   field :advantage_string6,            type: String
+  # 站点advantage配链接
+  field :advantage_url1,            type: String
+  field :advantage_url2,            type: String
+  field :advantage_url3,            type: String
+  field :advantage_url4,            type: String
+  field :advantage_url5,            type: String
+  field :advantage_url6,            type: String
+
   # 站点cooperation配图文字
   field :cooperation_string,            type: String
 
