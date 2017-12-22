@@ -6,19 +6,19 @@
      <table class="table table-striped table-bordered">
       <tbody>
         <tr>
-          <td> 您好： <%= @email.name %></td>
+          <td> 您好： <%= @email.site.user.email %> 管理员</td>
         </tr>
         <tr>
-          <td>我们已经收到您反馈的内容：</td>
+          <td>我们已经收到用户: <%= @email.name %></td>
         </tr>
         <tr>
             <td>
-              <%= @email.content %>
+              反馈了如下内容：<%= @email.content %>
             </td>
         </tr>
         <tr>
           <td>
-            我们会尽快给您答复。
+            请您尽快处理。
           </td>
         </tr>
       </tbody>

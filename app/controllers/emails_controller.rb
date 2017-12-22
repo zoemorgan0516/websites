@@ -11,6 +11,7 @@ class EmailsController < ApplicationController
     @email = @site.emails.new(email_params)
     @email.save
     EmailMailer.notify_email_placed(@email).deliver!
+    EmailMailer.notify_email_placed_to_admin(@email).deliver!
     redirect_to site_path(@site)
   end
 
