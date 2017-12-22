@@ -5,22 +5,27 @@ class Admin::ArticlesController < ApplicationController
   layout "admin"
 
   def index
-    @articles = current_user.articles.page params[:page]
+    @site = current_user.site
+    @articles = @site.articles.page params[:page]
   end
 
   def new
-    @article = Article.new
+    @site = current_user.site
+    @article = @site.articles.new
   end
 
   def edit
+    @site = current_user.site
   end
 
   def show
+    @site = current_user.site
+    @comments = @article.comments
   end
 
   def create
-    @article = Article.new(article_params)
-    @article.user = current_user
+    @site = current_user.site
+    @article = @site.articles.new(article_params)
     if @article.save
        redirect_to admin_articles_path
     else
@@ -29,6 +34,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def update
+    @site = current_user.site
     if @article.update(article_params)
        redirect_to admin_articles_path
     else
@@ -37,6 +43,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def destroy
+    @site = current_user.site
     @article.destroy
     redirect_to admin_articles_path
   end

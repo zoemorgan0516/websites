@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource
   def create
     @article = Article.find(params[:article_id])
     @comment = Comment.new(comment_params)
@@ -10,6 +10,14 @@ class CommentsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @article = Article.find(params[:article_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to admin_article_path(@article)
+  end
+
   def comment_params
     params.require(:comment).permit(:content)
   end
