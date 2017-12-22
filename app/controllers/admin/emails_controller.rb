@@ -28,13 +28,13 @@ class Admin::EmailsController < ApplicationController
   #   redirect_to admin_emails_path(@site)
   # end
 
-  def update
-    if @email.update(email_params)
-       redirect_to admin_emails_path(@site)
-    else
-       render :edit
-    end
-  end
+  # def update
+  #   if @email.update(email_params)
+  #      redirect_to admin_emails_path(@site)
+  #   else
+  #      render :edit
+  #   end
+  # end
 
   def destroy
     @email.destroy

@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = Comment.new(comment_params)
     @comment.article = @article
-    @comment.user = current_user
     if @comment.save
       redirect_to article_path(@article)
     else
