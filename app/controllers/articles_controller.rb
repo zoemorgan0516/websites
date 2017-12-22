@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show]
-
+  load_and_authorize_resource
 
   def index
     @articles = current_user.articles.page params[:page]
