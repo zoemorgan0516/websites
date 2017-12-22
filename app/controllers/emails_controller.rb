@@ -9,9 +9,9 @@ class EmailsController < ApplicationController
   def create
     @site = current_user.site
     @email = @site.emails.new(email_params)
-    @email.user = current_user
     @email.save
     EmailMailer.notify_email_placed(@email).deliver!
+    EmailMailer.notify_email_placed_to_admin(@email).deliver!
     redirect_to site_path(@site)
   end
 

@@ -15,6 +15,5 @@ class Email
 
   # 关联关系
   belongs_to :site
-  belongs_to :user
 
 end
