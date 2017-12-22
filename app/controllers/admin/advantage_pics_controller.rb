@@ -54,22 +54,16 @@ class Admin::AdvantagePicsController < ApplicationController
   # DELETE /admin/advantage_pics/1
   # DELETE /admin/advantage_pics/1.json
   def destroy
-    @admin_advantage_pic.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_advantage_pics_url, notice: 'Advantage pic was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  def delete
     @advantage_pic = AdvantagePic.find(params[:id])
     @advantage_pic.destroy
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_advantage_pic
-      @admin_advantage_pic = Admin::AdvantagePic.find(params[:id])
+      @advantage_pic = AdvantagePic.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

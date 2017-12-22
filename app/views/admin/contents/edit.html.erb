@@ -9,6 +9,19 @@
     <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/photos/<%= photo.id %>/delete" id="<%= photo.id %>btn">删除</a>
   </div>
   <% end %>
+  <!-- 隐藏图片，实现删除后图片自动不见 -->
+  <% content_for :script do %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        <% @site.photos.all.each do |photo| %>
+        $("#<%= photo.id %>btn").click(function(){
+          $("#<%= photo.id %>").hide();
+          $("#<%= photo.id %>btn").hide();
+        });
+        <% end %>
+      });
+    </script>
+  <% end %>
   <!-- 添加新的图片-->
   <%= f.simple_fields_for :photos do |a| %>
   <%= a.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
