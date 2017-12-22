@@ -55,5 +55,6 @@ class Site
   has_many :photos
   has_many :advantage_pics
   has_many :cooperation_pics
+  has_many :articles
 
 end

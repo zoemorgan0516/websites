@@ -1,6 +1,8 @@
 class Article
   include Mongoid::Document
   include Mongoid::Timestamps
+  paginates_per 6
+  
   #文章标题
   field :title, type: String
   validates_presence_of :title, message: "标题不能为空"
@@ -18,6 +20,6 @@ class Article
   mount_uploader :avatar, AvatarUploader
 
   # 关联关系
-  belongs_to :user
+  belongs_to :site
   has_many :comments
 end
