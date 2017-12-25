@@ -52,7 +52,6 @@ class Admin::ContentsController < ApplicationController
   end
 
   def content_params
-    logger.debug params[:content]
     params.require(:content).permit(:title, :word, photos_attributes: [:avatar])
   end
 end
