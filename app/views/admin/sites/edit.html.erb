@@ -11,7 +11,7 @@
   <div id="<%= photo.id %>">
     <img src="<%= photo.avatar_url("zoe666") %>" >
     <br>
-    <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/photos/<%= photo.id %>/delete" id="<%= photo.id %>btn">删除（点击删除即删除成功，需刷新才可看到删除图片不见）</a>
+    <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/photos/<%= photo.id %>/delete" id="<%= photo.id %>btn">删除</a>
   </div>
   <% end %>
   <!-- 隐藏图片，实现删除后图片自动不见 -->
@@ -29,6 +29,7 @@
   <% end %>
   <!-- 添加新的图片-->
   <h5>选择新的滑动图片（上面显示图片和新选择图片数量之和为3张）</h5>
+  <h5>图片宽高尺寸分别为1347x500左右</h5>
   <%= f.simple_fields_for :photos do |a| %>
     <%= a.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
   <% end %>
@@ -45,7 +46,7 @@
   <div id="<%= advantage_pic.id %>">
     <img src="<%= advantage_pic.avatar_url("zoe666") %>" >
     <br>
-    <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/advantage_pics/<%= advantage_pic.id %>" id="<%= advantage_pic.id %>btn">删除（点击删除即删除成功，需刷新才可看到删除图片不见）</a>
+    <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/advantage_pics/<%= advantage_pic.id %>" id="<%= advantage_pic.id %>btn">删除</a>
   </div>
   <% end %>
   <!-- 隐藏图片，实现删除后图片自动不见 -->
@@ -63,6 +64,7 @@
   <% end %>
   <!-- 添加新的图片-->
   <h5>选择新的优势图片（上面显示图片和新选择图片数量之和为6张）</h5>
+  <h5>图片宽高尺寸分别为280x180左右</h5>
   <%= f.simple_fields_for :advantage_pics do |a| %>
     <%= a.file_field :avatar, :multiple => true, name: "advantage_pics[avatar][]" %>
   <% end %>
@@ -92,7 +94,7 @@
   <div id="<%= cooperation_pic.id %>">
     <img src="<%= cooperation_pic.avatar_url("zoe666") %>" >
     <br>
-    <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/cooperation_pics/<%= cooperation_pic.id %>/delete" id="<%= cooperation_pic.id %>btn">删除（点击删除即删除成功，需刷新才可看到删除图片不见）</a>
+    <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/cooperation_pics/<%= cooperation_pic.id %>/delete" id="<%= cooperation_pic.id %>btn">删除</a>
   </div>
   <% end %>
   <!-- 隐藏图片，实现删除后图片自动不见 -->
@@ -110,6 +112,7 @@
   <% end %>
   <!-- 添加新的图片-->
   <h5>选择新的合作伙伴图片（上面显示图片和新选择图片数量之和为8张）</h5>
+  <h5>图片宽高尺寸分别为255x225左右</h5>
   <%= f.simple_fields_for :cooperation_pics do |a| %>
     <%= a.file_field :avatar, :multiple => true, name: "cooperation_pics[avatar][]" %>
   <% end %>
