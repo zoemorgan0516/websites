@@ -7,6 +7,7 @@ class Photo
 
   belongs_to :cooperation
   belongs_to :content
+  belongs_to :site
 
 
 end

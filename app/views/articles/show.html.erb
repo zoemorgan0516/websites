@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="col-md-12">
+      <br>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2><%= @article.title %></h2>
+          </div>
+         <div class="panel-body">
+            <h3><%= raw @article.content %></h4>
+            <h5>文章来源：<%= @article.from %></h5>
+            <h5>文章转载地址：<%= @article.url %><h5>
+         </div>
+         <br>
+         <div class="pull-right">
+           <%= link_to '返回首页',articles_path, class: "btn btn-primary pull-right" %>
+         </div>
+      </div>
+  </div>
+
+ <!-- <div class="col-md-6">
+   <div class="panel panel-default">
+        <div class="panel-body">
+          <%= simple_form_for [@article, @comment] do |f| %>
+              <%= f.input :content,              label: "评论" %>
+              <div class="text-center">
+                <%= f.button :submit, "提 交", class: "btn btn-primary btn-sm" %>
+              </div>
+          <% end %>
+        </div>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="panel panel-default">
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+      <thead>
+        <tr>
+          <th>评论内容</th>
+        </thead>
+        <tbody>
+          <% @comments.each do |comment| %>
+            <tr>
+              <td><%= comment.content %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</body> -->

@@ -14,7 +14,10 @@
  *= require_self
  */
 
-@import "bootstrap";
+/*slider CSS*/
+ .carousel-inner {
+   height: 500px;
+ }
 
 /* 导航css */
 .header { background:#fff; width:100%; height:90px; position:fixed; top:0px; z-index:99; border-bottom:1px solid #e1e1e1}

@@ -1,8 +1,135 @@
-<div class="panel panel-default">
-<div class="panel-heading font-bold">
-  编辑站点
-</div>
-<div class="panel-body">
-  <%= render "form" %>
-</div>
-</div>
+<%= simple_form_for [:admin, @site] do |f| %>
+  <%= f.input :name,  label: "站点名字" %>
+  <%= f.input :domain, label: "站点域名" %>
+  <%= f.input :avatar, label: "navbar网站logo" %>
+  <br>
+
+  <!-- slider_pictures -->
+  <!-- 显示图片,并可删除图片 -->
+  <h4>当前网站显示的滑动图片</h4>
+  <% @site.photos.all.each do |photo| %>
+  <div id="<%= photo.id %>">
+    <img src="<%= photo.avatar_url("zoe666") %>" >
+    <br>
+    <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/photos/<%= photo.id %>/delete" id="<%= photo.id %>btn">删除（点击删除即删除成功，需刷新才可看到删除图片不见）</a>
+  </div>
+  <% end %>
+  <!-- 隐藏图片，实现删除后图片自动不见 -->
+  <% content_for :script do %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        <% @site.photos.all.each do |photo| %>
+        $("#<%= photo.id %>btn").click(function(){
+          $("#<%= photo.id %>").hide();
+          $("#<%= photo.id %>btn").hide();
+        });
+        <% end %>
+      });
+    </script>
+  <% end %>
+  <!-- 添加新的图片-->
+  <h5>选择新的滑动图片（上面显示图片和新选择图片数量之和为3张）</h5>
+  <%= f.simple_fields_for :photos do |a| %>
+    <%= a.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+  <% end %>
+  <br>
+  <h4>滑动图片配置文字</h4>
+  <%= f.input :slider_string1, label: "滑动图片1配置文字" %>
+  <%= f.input :slider_string2, label: "滑动图片2配置文字" %>
+  <%= f.input :slider_string3, label: "滑动图片3配置文字" %>
+  <br>
+
+  <!-- advantage_pictures -->
+  <h4>当前网站显示的优势图片</h4>
+  <% @site.advantage_pics.all.each do |advantage_pic| %>
+  <div id="<%= advantage_pic.id %>">
+    <img src="<%= advantage_pic.avatar_url("zoe666") %>" >
+    <br>
+    <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/advantage_pics/<%= advantage_pic.id %>" id="<%= advantage_pic.id %>btn">删除（点击删除即删除成功，需刷新才可看到删除图片不见）</a>
+  </div>
+  <% end %>
+  <!-- 隐藏图片，实现删除后图片自动不见 -->
+  <% content_for :script do %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        <% @site.advantage_pics.all.each do |advantage_pic| %>
+        $("#<%= advantage_pic.id %>btn").click(function(){
+          $("#<%= advantage_pic.id %>").hide();
+          $("#<%= advantage_pic.id %>btn").hide();
+        });
+        <% end %>
+      });
+    </script>
+  <% end %>
+  <!-- 添加新的图片-->
+  <h5>选择新的优势图片（上面显示图片和新选择图片数量之和为6张）</h5>
+  <%= f.simple_fields_for :advantage_pics do |a| %>
+    <%= a.file_field :avatar, :multiple => true, name: "advantage_pics[avatar][]" %>
+  <% end %>
+  <br>
+  <h4>优势图片配置文字</h4>
+  <%= f.input :advantage_string, label: "我们的优势" %>
+  <%= f.input :advantage_string1, label: "优势图片1配置文字" %>
+  <%= f.input :advantage_string2, label: "优势图片2配置文字" %>
+  <%= f.input :advantage_string3, label: "优势图片3配置文字" %>
+  <%= f.input :advantage_string4, label: "优势图片4配置文字" %>
+  <%= f.input :advantage_string5, label: "优势图片5配置文字" %>
+  <%= f.input :advantage_string6, label: "优势图片6配置文字" %>
+  <br>
+  <h4>优势图片配置链接</h4>
+  <%= f.input :advantage_url1, label: "优势图片1配置链接" %>
+  <%= f.input :advantage_url2, label: "优势图片2配置链接" %>
+  <%= f.input :advantage_url3, label: "优势图片3配置链接" %>
+  <%= f.input :advantage_url4, label: "优势图片4配置链接" %>
+  <%= f.input :advantage_url5, label: "优势图片5配置链接" %>
+  <%= f.input :advantage_url6, label: "优势图片6配置链接" %>
+
+
+
+  <!-- cooperation_pictures -->
+  <h4>当前网站显示的合作伙伴图片</h4>
+  <% @site.cooperation_pics.all.each do |cooperation_pic| %>
+  <div id="<%= cooperation_pic.id %>">
+    <img src="<%= cooperation_pic.avatar_url("zoe666") %>" >
+    <br>
+    <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/cooperation_pics/<%= cooperation_pic.id %>/delete" id="<%= cooperation_pic.id %>btn">删除（点击删除即删除成功，需刷新才可看到删除图片不见）</a>
+  </div>
+  <% end %>
+  <!-- 隐藏图片，实现删除后图片自动不见 -->
+  <% content_for :script do %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        <% @site.cooperation_pics.all.each do |cooperation_pic| %>
+        $("#<%= cooperation_pic.id %>btn").click(function(){
+          $("#<%= cooperation_pic.id %>").hide();
+          $("#<%= cooperation_pic.id %>btn").hide();
+        });
+        <% end %>
+      });
+    </script>
+  <% end %>
+  <!-- 添加新的图片-->
+  <h5>选择新的合作伙伴图片（上面显示图片和新选择图片数量之和为8张）</h5>
+  <%= f.simple_fields_for :cooperation_pics do |a| %>
+    <%= a.file_field :avatar, :multiple => true, name: "cooperation_pics[avatar][]" %>
+  <% end %>
+  <br>
+  <h4>合作伙伴图片配置</h4>
+  <%= f.input :cooperation_string, label: "合作伙伴图片配置文字" %>
+  <%= f.input :cooperation_url, label: "合作伙伴图片配置url" %>
+  <br>
+  <br>
+
+  <!-- 网站footer设计 design -->
+  <%= f.simple_fields_for :footer do |n| %>
+    <%= n.input :avatar, as: :file, label: "公司网站二维码" %>
+    <%= n.input :company_number, label: "公司电话" %>
+    <%= n.input :company_address, label: "公司地址" %>
+  <% end %>
+
+  <div class="line line-dashed b-b line-lg pull-in"></div>
+  <div class="col-sm-10 col-sm-offset-2">
+      <%= f.button :submit, "提 交", class: "btn btn-primary" %>
+      <%= link_to "返 回", admin_sites_path, class: "btn btn-default" %>
+  </div>
+<% end %>

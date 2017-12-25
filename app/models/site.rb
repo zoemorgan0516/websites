@@ -14,7 +14,30 @@ class Site
   # 站点名字
   field :name,              type: String
   #validates :name, presence: true
-  # 站点域名
+  # 站点slider配图文字
+  field :slider_string1,            type: String
+  field :slider_string2,            type: String
+  field :slider_string3,            type: String
+  # 站点advantage配图文字
+  field :advantage_string,            type: String #我们的优势 
+  field :advantage_string1,            type: String
+  field :advantage_string2,            type: String
+  field :advantage_string3,            type: String
+  field :advantage_string4,            type: String
+  field :advantage_string5,            type: String
+  field :advantage_string6,            type: String
+  # 站点advantage配链接
+  field :advantage_url1,            type: String
+  field :advantage_url2,            type: String
+  field :advantage_url3,            type: String
+  field :advantage_url4,            type: String
+  field :advantage_url5,            type: String
+  field :advantage_url6,            type: String
+
+  # 站点cooperation配图文字
+  field :cooperation_string,            type: String
+  # 站点cooperation配图链接
+  field :cooperation_url,            type: String
 
   field :domain,               type: String
   validates :domain, presence: true
@@ -27,9 +50,12 @@ class Site
   accepts_nested_attributes_for :footer
 
   has_many :categories
-  has_many :cooperations
-  has_many :slider_pictures
-  has_many :advantages
-  has_many :contents
+
+  has_many :emails
+  has_many :contents_classes
+  has_many :photos
+  has_many :advantage_pics
+  has_many :cooperation_pics
+  has_many :articles
 
 end

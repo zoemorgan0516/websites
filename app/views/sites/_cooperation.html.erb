@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>
+    <div style="text-align:center">
+      <%= @site.cooperation_string %>
+    </div>
+  </h2>
+  <% @site.cooperation_pics.each do |cooperation_pic| %>
+     <div class="col-sm-3">
+         <br>
+         <div class="persona-advantage-1">
+            <a class="persona-advantage" href="/<%= @site.cooperation_url%>">
+              <img src="<%= cooperation_pic.avatar.url("zoe666") %>">
+            </a>
+         </div>
+     </div>
+  <% end %>
+</div>

@@ -1,0 +1,62 @@
+<div class="col-md-12">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @article.title %>
+    </p>
+
+    <p>
+      <strong>Content:</strong>
+      <%= raw @article.content %>
+    </p>
+
+    <p>
+      <strong>From:</strong>
+      <%= @article.from %>
+    </p>
+
+    <p>
+      <strong>Url:</strong>
+      <%= @article.url %>
+    </p>
+
+    <p>
+      <strong>图片:</strong>
+      <% if not @article&.avatar&.url.blank? %>
+      <img src="<%= @article.avatar.url('40') %>">
+      <% end %>
+    </p>
+
+    <div class="line line-dashed b-b line-lg pull-in"></div>
+
+
+    <%= link_to '编辑文章', edit_admin_article_path(@article) ,class: "btn btn-default" %> |
+    <%= link_to '返回首页', admin_articles_path ,class: "btn btn-default"%>
+
+    <br>
+    <br>
+    <br>
+</div>
+
+<div class="col-md-12">
+  <div class="panel panel-default">
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+      <thead>
+        <tr>
+          <th>评论内容</th>
+          <th>删除评论</th>
+        </thead>
+        <tbody>
+          <% @comments.each do |comment| %>
+            <tr>
+              <td><%= comment.content %></td>
+              <td><%= link_to "删除", article_comment_path(comment.article, comment), method: :delete, class: "btn btn-danger btn-xs" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
