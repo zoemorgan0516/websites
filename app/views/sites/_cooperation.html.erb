@@ -1,17 +1,24 @@
-<div class="container">
+<div class="container-fluid" style="background-image: url(https://ws3.sinaimg.cn/large/006tKfTcgy1fmt0yddzctj318g0p0798.jpg);  -webkit-background-size: cover;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  height: 500px;
+  background-size: 100%;" style="opacity: 0;">
   <h2>
     <div style="text-align:center">
       <%= @site.cooperation_string %>
     </div>
   </h2>
-  <% @site.cooperation_pics.each do |cooperation_pic| %>
-     <div class="col-sm-3">
-         <br>
-         <div class="persona-advantage-1">
-            <a class="persona-advantage" href="/<%= @site.cooperation_url%>">
-              <img src="<%= cooperation_pic.avatar.url("zoe666") %>">
-            </a>
-         </div>
-     </div>
-  <% end %>
+  <br>
+  <div class="col-sm-11 col-sm-offset-1">
+    <% @site.cooperation_pics.each do |cooperation_pic| %>
+       <div class="col-sm-3">
+           <br>
+           <div class="persona-advantage-1">
+              <a class="persona-advantage" href="<%= @site.cooperation_url%>">
+                <img src="<%= cooperation_pic.avatar.url("zoe666") %>">
+              </a>
+           </div>
+       </div>
+    <% end %>
+  </div>
 </div>

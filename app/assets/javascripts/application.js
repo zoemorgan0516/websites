@@ -12,3 +12,7 @@
 //
 //= require rails-ujs
 //= require_tree .
+$(document).ready(function(){
+   var width = $(window).width();  //getting windows height
+   jQuery('#myCarousel').css('width',width+'px');   //and setting height of carousel
+});
