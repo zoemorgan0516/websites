@@ -1,5 +1,5 @@
 class FrontBaseController < ApplicationController
-  layout 'application'
+  layout 'template'
   before_action :set_current_site
 
   private
