@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <!-- 显示logo and menu 内容 -->
+    <%= render "sites/navbar" %>
+
     <%= yield %>
+    
+    <!-- 显示footer和copyright内容 -->
+    <%= render "sites/footer_copyright" %>
+
+
   </body>
 </html>
