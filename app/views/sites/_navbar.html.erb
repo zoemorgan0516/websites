@@ -1,11 +1,11 @@
 <!-- banner positon including navbar and site_copyright -->
-  <div class="header">
-    <div class="topNav">
+  <div class="header-site">
+    <div class="topNav-site">
       <!-- 显示当前公司站点的logo-->
       <img class="logo" src="<%= @site.avatar.url("zoe666") %>" >
       <!-- 显示菜单内容 -->
       <div class="navBar-site">
-        <ul class="nav-site clearfix">
+        <ul class="nav-site clearfix-site">
           <h4>
             <% @site.categories.each do |category| %>
               <td><%= link_to category.menu, category.menu_url %>
