@@ -28,9 +28,6 @@ class UsersController < BaseController
    def edit
    end
 
-   def show
-   end
-
    def update
     if params[:user][:password].blank?
        params[:user].delete(:password)
@@ -47,16 +44,6 @@ class UsersController < BaseController
    def destroy
      @user.destroy
      redirect_to users_path
-   end
-
-   def favorite
-       @user.favorite
-       redirect_to users_path
-   end
-
-   def unfavorite
-       @user.unfavorite
-       redirect_to users_path
    end
 
    private
