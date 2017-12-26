@@ -1,26 +1,17 @@
-class EmailsController < ApplicationController
-  before_action :authenticate_user!
-  load_and_authorize_resource
-  before_action :set_email, only: [:edit, :update, :show]
+class EmailsController < FrontBaseController
+
   def new
-    @email = Email.new
+    @email = @current_site.emails.build
   end
 
   def create
-    @site = current_user.site
-    @email = @site.emails.new(email_params)
-    @email.save
+    @email = @current_site.emails.create(email_params)
     EmailMailer.notify_email_placed(@email).deliver!
     EmailMailer.notify_email_placed_to_admin(@email).deliver!
-    redirect_to site_path(@site)
+    redirect_to root_path
   end
 
   private
-
-  def set_email
-    @site = current_user.site
-    @email = @site.emails.find(params[:id])
-  end
 
   def email_params
     params.require(:email).permit(:name, :content, :email_address)

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 # 后台网站板式组成部分的路径
   namespace :admin do
-    resources :advantage_pics 
+    resources :advantage_pics
     resources :cooperation_pics do
       member do
         delete 'delete'
@@ -47,5 +47,5 @@ Rails.application.routes.draw do
   resources :cooperation_pics
   resources :advantage_pics
 
-  root "welcome#index"
+  root "sites#show"
 end
