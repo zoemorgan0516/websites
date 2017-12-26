@@ -1,24 +1,17 @@
-class Admin::SliderPicturesController < ApplicationController
-  before_action :authenticate_user!
-  load_and_authorize_resource
+class Admin::SliderPicturesController < BaseController
   before_action :set_slider_picture, only: [:edit, :update, :show]
-  layout "admin"
 
   def index
-    @site = current_user.site
     @slider_pictures = @site.slider_pictures.all
   end
 
   def new
-    @site = current_user.site
     @slider_picture = SliderPicture.new
   end
 
   def edit
   end
 
-  def show
-  end
 
   def create
     @site = current_user.site
