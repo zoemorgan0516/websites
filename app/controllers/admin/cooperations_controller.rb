@@ -1,6 +1,4 @@
 class Admin::CooperationsController < BaseController
-  before_action :authenticate_user!
-  load_and_authorize_resource
   before_action :set_cooperation, only: [:edit, :update, :destroy]
   layout "admin"
 

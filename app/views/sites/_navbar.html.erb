@@ -2,12 +2,12 @@
   <div class="header-site">
     <div class="topNav-site">
       <!-- 显示当前公司站点的logo-->
-      <img class="logo" src="<%= @site.avatar.url("zoe666") %>" >
+      <img class="logo" src="<%= @current_site.avatar.url("zoe666") %>" >
       <!-- 显示菜单内容 -->
       <div class="navBar-site">
         <ul class="nav-site clearfix-site">
           <h4>
-            <% @site.categories.each do |category| %>
+            <% @current_site.categories.each do |category| %>
               <td><%= link_to category.menu, category.menu_url %>
               |
               </td>

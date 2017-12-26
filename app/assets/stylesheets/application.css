@@ -16,7 +16,6 @@
 
 
 
-
 /* 导航css */
 .header-site { background:#fff; width:100%; height:90px; position:fixed; top:0px; z-index:99; border-bottom:1px solid #e1e1e1}
 .topNav-site{ width:90%; margin:0 auto;}
@@ -49,7 +48,7 @@
  }
 
 /*copyright*/
-.footerbox{ width:100%; position: relative; bottom: 10px; background-color:#3f5267; padding-top:1px }
+.footerbox{ width:100%; position: absolute;; bottom: 0px; background-color:#3f5267; padding-top:1px }
 .footer{ width:100%; margin:0 auto; padding-top:30px}
 .footer .copyright{ overflow:hidden; width:100%; height:40px; display:block; border-top:1px solid #6281a3; padding-top:10px; color:#fff; text-align:center }
 
