@@ -1,16 +1,11 @@
-class Admin::AdvantagesController < ApplicationController
-  before_action :authenticate_user!
-  load_and_authorize_resource
+class Admin::AdvantagesController < BaseController
   before_action :set_advantage, only: [:edit, :update, :show]
-  layout "admin"
 
   def index
-    @site = current_user.site
     @advantages = @site.advantages.all
   end
 
   def new
-    @site = current_user.site
     @advantage = @site.advantages.new
   end
 
@@ -21,7 +16,6 @@ class Admin::AdvantagesController < ApplicationController
   end
 
   def create
-    @site = current_user.site
     @advantage = @site.advantages.new(advantage_params)
     if @advantage.save
        redirect_to admin_advantages_path(@site)
@@ -46,7 +40,6 @@ class Admin::AdvantagesController < ApplicationController
   private
 
   def set_advantage
-    @site = current_user.site
     @advantage = @site.advantages.find(params[:id])
   end
 
