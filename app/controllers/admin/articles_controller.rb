@@ -2,11 +2,11 @@ class Admin::ArticlesController < BaseController
   before_action :set_article, only: [:edit, :update, :show]
 
   def index
-    @articles = @site.articles.page params[:page]
+    @articles = @current_site.articles.page params[:page]
   end
 
   def new
-    @article = @site.articles.new
+    @article = @current_site.articles.new
   end
 
   def edit
@@ -17,7 +17,7 @@ class Admin::ArticlesController < BaseController
   end
 
   def create
-    @article = @site.articles.new(article_params)
+    @article = @current_site.articles.new(article_params)
     if @article.save
        redirect_to admin_articles_path
     else

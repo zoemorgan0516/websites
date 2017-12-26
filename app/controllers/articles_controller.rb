@@ -13,7 +13,6 @@ class ArticlesController < FrontBaseController
   private
 
   def set_article
-    @site = current_site
     @article = Article.find(params[:id])
   end
 
