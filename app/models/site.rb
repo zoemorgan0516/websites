@@ -19,7 +19,7 @@ class Site
   field :slider_string2,            type: String
   field :slider_string3,            type: String
   # 站点advantage配图文字
-  field :advantage_string,            type: String #我们的优势 
+  field :advantage_string,            type: String #我们的优势
   field :advantage_string1,            type: String
   field :advantage_string2,            type: String
   field :advantage_string3,            type: String
@@ -55,7 +55,7 @@ class Site
   has_many :contents_classes
   has_many :photos
   has_many :advantage_pics
-  has_many :cooperation_pics
+  has_many :cooperations
   has_many :articles
 
 end

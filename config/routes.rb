@@ -13,11 +13,6 @@ Rails.application.routes.draw do
 # 后台网站板式组成部分的路径
   namespace :admin do
     resources :advantage_pics
-    resources :cooperation_pics do
-      member do
-        delete 'delete'
-      end
-    end
     resources :contents_classes
     resources :sites
     resources :articles

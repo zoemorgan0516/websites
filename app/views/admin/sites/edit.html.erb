@@ -89,34 +89,6 @@
 
 
   <!-- cooperation_pictures -->
-  <h4>当前网站显示的合作伙伴图片</h4>
-  <% @site.cooperation_pics.all.each do |cooperation_pic| %>
-  <div id="<%= cooperation_pic.id %>">
-    <img src="<%= cooperation_pic.avatar_url("zoe666") %>" >
-    <br>
-    <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/cooperation_pics/<%= cooperation_pic.id %>/delete" id="<%= cooperation_pic.id %>btn">删除</a>
-  </div>
-  <% end %>
-  <!-- 隐藏图片，实现删除后图片自动不见 -->
-  <% content_for :script do %>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        <% @site.cooperation_pics.all.each do |cooperation_pic| %>
-        $("#<%= cooperation_pic.id %>btn").click(function(){
-          $("#<%= cooperation_pic.id %>").hide();
-          $("#<%= cooperation_pic.id %>btn").hide();
-        });
-        <% end %>
-      });
-    </script>
-  <% end %>
-  <!-- 添加新的图片-->
-  <h5>选择新的合作伙伴图片（上面显示图片和新选择图片数量之和为8张）</h5>
-  <h5>图片宽高尺寸分别为255x225左右</h5>
-  <%= f.simple_fields_for :cooperation_pics do |a| %>
-    <%= a.file_field :avatar, :multiple => true, name: "cooperation_pics[avatar][]" %>
-  <% end %>
-  <br>
   <h4>合作伙伴图片配置</h4>
   <%= f.input :cooperation_string, label: "合作伙伴图片配置文字" %>
   <%= f.input :cooperation_url, label: "合作伙伴图片配置url" %>

@@ -3,6 +3,7 @@ class BaseController < ApplicationController
   layout 'admin'
   before_action :set_current_site
   load_and_authorize_resource
+  
   private
 
   def set_current_site

@@ -5,17 +5,17 @@
   background-size: 100%;" style="opacity: 0;">
   <h2>
     <div style="text-align:center">
-      <%= @site.cooperation_string %>
+      <%= @current_site.cooperation_string %>
     </div>
   </h2>
   <br>
   <div class="col-sm-11 col-sm-offset-1">
-    <% @site.cooperation_pics.each do |cooperation_pic| %>
+    <% @current_site.cooperations.each do |cooperation| %>
        <div class="col-sm-3">
            <br>
            <div class="persona-advantage-1">
               <a class="persona-advantage" href="<%= @site.cooperation_url%>">
-                <img src="<%= cooperation_pic.avatar.url("zoe666") %>">
+                <img src="<%= cooperation.avatar.url("zoe666") %>">
               </a>
            </div>
        </div>
