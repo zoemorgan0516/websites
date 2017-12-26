@@ -11,7 +11,6 @@ class Admin::SitesController < BaseController
   end
 
   def show
-    @site = current_user.site
     @categories = @site.categories
     @footer = @site.footer
   end
@@ -71,11 +70,7 @@ class Admin::SitesController < BaseController
   end
 
   def site_params
-    params.require(:site).permit(:advantage_string, :cooperation_url, :cooperation_string, :avatar, :name, :domain,
-                                :slider_string1, :slider_string2, :slider_string3,
-                                :advantage_string1,:advantage_string2,:advantage_string3,:advantage_string4,:advantage_string5,:advantage_string6,
-                                :advantage_url1,:advantage_url2,:advantage_url3,:advantage_url4,:advantage_url5,:advantage_url6,
-                                footer_attributes: [ :avatar, :company_number, :company_address ])
+    params.require(:site).permit(:name, :domain, footer_attributes: [ :avatar, :company_number, :company_address ])
 
   end
 end
