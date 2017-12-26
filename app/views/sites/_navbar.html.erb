@@ -4,12 +4,12 @@
       <!-- 显示当前公司站点的logo-->
       <img class="logo" src="<%= @site.avatar.url("zoe666") %>" >
       <!-- 显示菜单内容 -->
-      <div class="navBar">
-        <ul class="nav clearfix">
+      <div class="navBar-site">
+        <ul class="nav-site clearfix">
           <h4>
             <% @site.categories.each do |category| %>
               <td><%= link_to category.menu, category.menu_url %>
-              | 
+              |
               </td>
             <% end %>
           </h4>
