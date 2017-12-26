@@ -3,18 +3,6 @@
   <%= f.input :domain, label: "站点域名" %>
   <%= f.input :avatar, label: "navbar网站logo" %>
 
-  <!-- slider_pictures -->
-  <h5>滑动图片位置（请选三张）</h5>
-  <%= f.simple_fields_for :photos do |a| %>
-    <%= a.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
-  <% end %>
-
-  <!-- advantage_pictures -->
-  <h5>优势图片位置（请选三张）</h5>
-  <%= f.simple_fields_for :advantage_pics do |a| %>
-    <%= a.file_field :avatar, :multiple => true, name: "advantage_pics[avatar][]" %>
-  <% end %>
-
   <!-- cooperation_pictures -->
   <h5>合作伙伴图片位置（请选三张）</h5>
   <%= f.simple_fields_for :cooperation_pics do |a| %>

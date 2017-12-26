@@ -2,7 +2,7 @@ class Admin::EmailsController < BaseController
   before_action :set_email, only: [:edit, :update, :show]
 
   def index
-    @emails = @site.emails.all.page params[:page]
+    @emails = @current_site.emails.all.page params[:page]
   end
 
   def destroy
@@ -13,7 +13,7 @@ class Admin::EmailsController < BaseController
   private
 
   def set_email
-    @email = @site.emails.find(params[:id])
+    @email = @current_site.emails.find(params[:id])
   end
 
   def email_params
