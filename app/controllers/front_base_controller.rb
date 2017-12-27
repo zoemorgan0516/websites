@@ -7,7 +7,7 @@ class FrontBaseController < ApplicationController
   def set_current_site
     logger.debug request.host
     if Rails.env.development?
-      @current_site = current_user.site
+      @current_site = Site.first
     else
       @current_site = Site.find_by(domain: request.host)
     end

@@ -11,6 +11,9 @@ class Site
   # 站点名字
   field :name,              type: String
   #validates :name, presence: true
+  #站点合作伙伴文字和链接
+  field :advantage_string,              type: String
+  field :cooperation_string,              type: String
 
 
   # 关联关系
