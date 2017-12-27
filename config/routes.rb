@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :footers
     resources :categories
     resources :contents
+    resources :slider_pictures
     resources :cooperations
     resources :photos do
       member do

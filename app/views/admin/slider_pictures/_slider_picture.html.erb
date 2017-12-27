@@ -1,0 +1,10 @@
+<tr>
+  <td><%= image_tag(slider_picture.avatar_url("zoe666")) %></td>
+  <td><%= slider_picture.content %></td>
+  <td><%= slider_picture.url %></td>
+  <td><%= slider_picture.created_at.strftime("%F %T")%></td>
+  <td>
+    <%= link_to "修改", edit_admin_slider_picture_path(slider_picture), class: "btn btn-default btn-xs" %>
+    <%= link_to "删除", admin_slider_picture_path(slider_picture), method: :delete, class: "btn btn-default btn-xs" %>
+  </td>
+</tr>

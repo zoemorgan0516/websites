@@ -2,11 +2,11 @@ class Admin::SliderPicturesController < BaseController
   before_action :set_slider_picture, only: [:edit, :update, :show]
 
   def index
-    @slider_pictures = @site.slider_pictures.all
+    @slider_pictures = @current_site.slider_pictures
   end
 
   def new
-    @slider_picture = SliderPicture.new
+    @slider_picture = @current_site.slider_pictures.new
   end
 
   def edit
@@ -14,11 +14,9 @@ class Admin::SliderPicturesController < BaseController
 
 
   def create
-    @site = current_user.site
-    @slider_picture = SliderPicture.new(slider_picture_params)
-    @slider_picture.site = @site
+    @slider_picture = @current_site.slider_pictures.new(slider_picture_params)
     if @slider_picture.save
-       redirect_to admin_slider_pictures_path(@site)
+       redirect_to admin_slider_pictures_path
     else
       render :new
     end
@@ -26,7 +24,7 @@ class Admin::SliderPicturesController < BaseController
 
   def update
     if @slider_picture.update(slider_picture_params)
-       redirect_to admin_slider_pictures_path(@site)
+       redirect_to admin_slider_pictures_path
     else
       render :edit
     end
@@ -34,17 +32,16 @@ class Admin::SliderPicturesController < BaseController
 
   def destroy
     @slider_picture.destroy
-    redirect_to admin_slider_pictures_path(@site)
+    redirect_to admin_slider_pictures_path
   end
 
   private
 
   def set_slider_picture
-    @site = current_user.site
-    @slider_picture = SliderPicture.find(params[:id])
+    @slider_picture = @current_site.slider_pictures.find(params[:id])
   end
 
   def slider_picture_params
-    params.require(:slider_picture).permit(:content, :avatar)
+    params.require(:slider_picture).permit(:content, :avatar, :url)
   end
 end

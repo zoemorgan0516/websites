@@ -23,6 +23,7 @@ class Site
   has_many :emails
   has_many :contents_classes
   has_many :photos
+  has_many :slider_pictures
   has_many :cooperations
   has_many :articles
 
