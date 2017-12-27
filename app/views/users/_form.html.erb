@@ -1,4 +1,3 @@
-
 <%= simple_form_for(@user, html: { multipart: true, class: "form-horizontal" }) do |f| %>
   <% if current_user.super?  %>
     <%= f.input :email, label: "用户邮箱", placeholder: 'xxx@xx.com' %>
@@ -24,7 +23,7 @@
       </div>
     </div>
    <% end %>
-   
+
   <div class="line line-dashed b-b line-lg pull-in"></div>
   <%= f.input :password, label: "用户密码"%>
   <div class="line line-dashed b-b line-lg pull-in"></div>
