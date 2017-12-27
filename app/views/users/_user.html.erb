@@ -4,7 +4,6 @@
    <td><%= user.role %></td>
    <td><%= user.created_at.strftime("%F %T")%></td>
    <td>
-     <%= link_to "查看", user, class: "btn btn-default btn-xs" %>
      <% if current_user.role == "super" %>
        <%= link_to "修改管理员信息", edit_user_path(user), class: "btn btn-default btn-xs" %>
      <% else %>
