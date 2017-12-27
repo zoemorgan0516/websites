@@ -2,11 +2,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-##后台登录路径
-
+##后台登录
 ## 后台权限管理
 # 账号管理
-  resources :users, path: :admin do
+  resources :users, path: :managers do
     member do
       put 'favorite'
       put 'unfavorite'
