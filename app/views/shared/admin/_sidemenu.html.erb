@@ -87,11 +87,7 @@
 
           <% if current_user.role == "admin" %>
               <li class="<%= "active" if controller_name == "sites" %>">
-                <% if Rails.env.development? %>
-                     <a href="/sites/<%= current_user.site.id %>" class="auto">
-                <% else %>
-                     <a href="http://<%= current_site.domain %>" class="auto">
-                <% end %>
+                  <a href="/sites/<%= current_user.site.id %>" class="auto">
                   <i class="fa fa-users"></i>
                   <span>查看网站效果</span>
                 </a>
