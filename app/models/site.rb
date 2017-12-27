@@ -12,11 +12,6 @@ class Site
   field :name,              type: String
   #validates :name, presence: true
 
-  # 站点cooperation配图文字
-  field :cooperation_string,            type: String
-  # 站点cooperation配图链接
-  field :cooperation_url,            type: String
-
 
   # 关联关系
   has_one :user
@@ -25,7 +20,6 @@ class Site
   accepts_nested_attributes_for :footer
 
   has_many :categories
-
   has_many :emails
   has_many :contents_classes
   has_many :photos
