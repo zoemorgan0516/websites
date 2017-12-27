@@ -19,7 +19,7 @@
         <% @current_site.cooperations.each do |cooperation| %>
           <tr>
             <td><%= cooperation.cooperation_company %></td>
-            <td><%= cooperation.cooperation_string %></td>
+            <td><%= cooperation.cooperation_url %></td>
             <td><%= cooperation.created_at.strftime("%F %T")%></td>
             <td>
               <%= link_to "修改", edit_admin_cooperation_path(cooperation), class: "btn btn-default btn-xs" %>

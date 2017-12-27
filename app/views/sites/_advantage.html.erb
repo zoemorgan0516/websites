@@ -1,15 +1,29 @@
-<div class="container">
-  <% @site.advantages.each do |advantage| %>
-     <div class="col-sm-4">
-         <br>
-         <div class="persona-advantage-1">
-             <a class="persona-advantage" href="<%= advantage.url %>">
-                     <div class="info-default">
-                         <h2><%= advantage.content %></h2>
-                     </div>
-                   <%= image_tag(advantage.avatar_url("zoe666")) %>
-             </a>
-         </div>
-     </div>
-  <% end %>
+<div class="container-fluid" style="background-image: url(https://ws1.sinaimg.cn/large/006tKfTcgy1fmt1uqhtaqj30no0dcq2z.jpg);  -webkit-background-size: cover;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  height: 500px;
+  background-size: 100%;">
+  <h2>
+    <div style="text-align:center">
+      <%= @site.advantage_string %>
+    </div>
+  </h2>
+  <br>
+    <div class="row">
+      <div class="col-sm-11 col-sm-offset-1">
+         <% @site.advantages.each do |advantage| %>
+            <div class="col-sm-4">
+                <br>
+                <div class="persona-advantage-1">
+                    <a class="persona-advantage" href="<%= advantage.url %>">
+                            <div class="info-default">
+                                <h2><%= advantage.content %></h2>
+                            </div>
+                          <%= image_tag(advantage.avatar_url("zoe666")) %>
+                    </a>
+                </div>
+            </div>
+         <% end %>
+      </div>
+    </div>
 </div>

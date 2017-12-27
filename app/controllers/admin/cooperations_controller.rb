@@ -38,6 +38,6 @@ class Admin::CooperationsController < BaseController
   end
 
   def cooperation_params
-    params.require(:cooperation).permit(:avatar, :cooperation_string, :cooperation_company)
+    params.require(:cooperation).permit(:avatar, :cooperation_url, :cooperation_company)
   end
 end
