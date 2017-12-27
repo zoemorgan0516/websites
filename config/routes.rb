@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :contents
     resources :slider_pictures
+    resources :advantages
     resources :cooperations
     resources :photos do
       member do

@@ -24,6 +24,7 @@ class Site
   has_many :contents_classes
   has_many :photos
   has_many :slider_pictures
+  has_many :advantages
   has_many :cooperations
   has_many :articles
 

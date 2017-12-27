@@ -15,8 +15,9 @@ class Ability
       can :manage, Category
       can :manage, ContentsClass
       can :manage, Content
-      can :manage, Cooperation
       can :manage, SliderPicture
+      can :manage, Advantage
+      can :manage, Cooperation
     elsif user.role == 'user'
       alias_action :read, :to => :welcome
       can :read, Site

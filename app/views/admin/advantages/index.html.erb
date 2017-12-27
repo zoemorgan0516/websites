@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      我们的优势图片一览表
+    <div class="pull-right">
+      <%= link_to "新建优势图片", new_admin_advantage_path, class: "btn btn-primary btn-xs" %>
+    </div>
+  </div>
+   <div class="table-responsive">
+    <table class="table table-striped b-t b-light">
+      <thead>
+        <tr>
+          <th>我们的优势图片</th>
+          <th>我们的优势图片文字</th>
+          <th>我们的优势图片链接</th>
+          <th style="width:120px;">创建时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render(@advantages) %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

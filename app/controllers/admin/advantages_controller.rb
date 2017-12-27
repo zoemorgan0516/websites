@@ -2,11 +2,11 @@ class Admin::AdvantagesController < BaseController
   before_action :set_advantage, only: [:edit, :update, :show]
 
   def index
-    @advantages = @site.advantages.all
+    @advantages = @current_site.advantages.all
   end
 
   def new
-    @advantage = @site.advantages.new
+    @advantage = @current_site.advantages.new
   end
 
   def edit
@@ -16,9 +16,9 @@ class Admin::AdvantagesController < BaseController
   end
 
   def create
-    @advantage = @site.advantages.new(advantage_params)
+    @advantage = @current_site.advantages.new(advantage_params)
     if @advantage.save
-       redirect_to admin_advantages_path(@site)
+       redirect_to admin_advantages_path
     else
       render :new
     end
@@ -26,7 +26,7 @@ class Admin::AdvantagesController < BaseController
 
   def update
     if @advantage.update(advantage_params)
-       redirect_to admin_advantages_path(@site)
+       redirect_to admin_advantages_path
     else
       render :edit
     end
@@ -34,13 +34,13 @@ class Admin::AdvantagesController < BaseController
 
   def destroy
     @advantage.destroy
-    redirect_to admin_advantages_path(@site)
+    redirect_to admin_advantages_path
   end
 
   private
 
   def set_advantage
-    @advantage = @site.advantages.find(params[:id])
+    @advantage = @current_site.advantages.find(params[:id])
   end
 
   def advantage_params
