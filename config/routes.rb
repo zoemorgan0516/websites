@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :slider_pictures
     resources :advantages
     resources :cooperations
-    resources :footers
     resources :articles
     resources :emails
     resources :photos do
