@@ -24,7 +24,7 @@
   <% end %>
   <!-- 添加新的图片-->
   <%= f.simple_fields_for :photos do |a| %>
-  <%= a.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+      <%= a.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
   <% end %>
   <div class="line line-dashed b-b line-lg pull-in"></div>
   <div class="col-sm-10 col-sm-offset-2">
