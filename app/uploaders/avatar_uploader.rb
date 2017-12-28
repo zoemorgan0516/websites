@@ -1,4 +1,4 @@
-AVATAR_UPLOADER_ALLOW_AVATAR_VERSION_NAMES = "zoe666"
+AVATAR_UPLOADER_ALLOW_AVATAR_VERSION_NAMES = ["zoe666", "666"]
 class AvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:

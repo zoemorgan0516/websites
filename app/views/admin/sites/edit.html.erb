@@ -3,7 +3,7 @@
   <%= f.input :domain, label: "站点域名" %>
   <%= f.input :avatar, label: "navbar网站logo" %>
   <% if @site.avatar.url %>
-      <%= image_tag(@site.avatar_url("zoe666"))%>
+      <%= image_tag(@site.avatar_url("666"))%>
   <% end %>
   </div>
 
@@ -21,7 +21,7 @@
   <%= f.simple_fields_for :footer do |n| %>
     <%= n.input :avatar, as: :file, label: "公司网站二维码" %>
     <% if @site.footer.avatar.url %>
-      <%= image_tag(@site.footer.avatar_url("zoe666"))%>
+      <%= image_tag(@site.footer.avatar_url("666"))%>
     <% end %>
     <%= n.input :company_number, label: "公司电话" %>
     <%= n.input :company_address, label: "公司地址" %>
