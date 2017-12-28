@@ -33,8 +33,6 @@ class Admin::SitesController < BaseController
 
   def update
     @site.update(site_params)
-    @site.footer.update
-    @site.update(site_params)
     redirect_to admin_sites_path
   end
 
