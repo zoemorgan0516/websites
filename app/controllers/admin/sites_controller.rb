@@ -49,6 +49,5 @@ class Admin::SitesController < BaseController
 
   def site_params
     params.require(:site).permit(:cooperation_string, :advantage_string, :name, :domain, :avatar, footer_attributes: [ :avatar, :company_number, :company_address ])
-
   end
 end
