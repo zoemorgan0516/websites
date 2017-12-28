@@ -1,35 +1,8 @@
-<%= simple_form_for [:admin, @site] do |f| %>
-  <%= f.input :name,  label: "站点名字" %>
-  <%= f.input :domain, label: "站点域名" %>
-  <%= f.input :avatar, label: "navbar网站logo" %>
-  <% if @site.avatar.url %>
-      <%= image_tag(@site.avatar_url("666"))%>
-  <% end %>
+<div class="panel panel-default">
+  <div class="panel-heading font-bold">
+    编辑站点
   </div>
-
-  <br>
-
-  <h4>优势图片配置文字</h4>
-  <%= f.input :advantage_string, label: "我们的优势" %>
-
-  <h4>合作伙伴图片配置文字</h4>
-  <%= f.input :cooperation_string, label: "合作伙伴图片配置文字" %>
-
-  <br>
-
-  <!-- 网站footer设计 design -->
-  <%= f.simple_fields_for :footer do |n| %>
-    <%= n.input :avatar, as: :file, label: "公司网站二维码" %>
-    <% if @site.footer.avatar.url %>
-      <%= image_tag(@site.footer.avatar_url("666"))%>
-    <% end %>
-    <%= n.input :company_number, label: "公司电话" %>
-    <%= n.input :company_address, label: "公司地址" %>
-  <% end %>
-
-  <div class="line line-dashed b-b line-lg pull-in"></div>
-  <div class="col-sm-10 col-sm-offset-2">
-      <%= f.button :submit, "提 交", class: "btn btn-primary" %>
-      <%= link_to "返 回", admin_sites_path, class: "btn btn-default" %>
+  <div class="panel-body">
+    <%= render "form" %>
   </div>
-<% end %>
+</div>
