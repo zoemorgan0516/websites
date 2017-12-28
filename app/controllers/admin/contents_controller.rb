@@ -32,7 +32,7 @@ class Admin::ContentsController < BaseController
     if not params[:photos].blank?
        params[:photos]['avatar'].each do |i|
          @photo = @content.photos.create!(:avatar => i)
-       end 
+       end
     end
     redirect_to admin_contents_path(contents_class_id: @content.contents_class_id)
   end
