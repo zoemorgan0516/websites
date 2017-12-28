@@ -1,5 +1,5 @@
 class Admin::ContentsController < BaseController
-  before_action :set_content, only: [:edit, :update, :create, :destroy]
+  before_action :set_content, only: [:edit, :update, :destroy]
 
   def index
     @contents = Content.where(contents_class_id: params[:contents_class_id]).page params[:page]
@@ -9,7 +9,13 @@ class Admin::ContentsController < BaseController
   def edit
   end
 
+  def new
+    @contents_class = ContentsClass.find(params[:contents_class_id])
+    @content = @contents_class.contents.new
+  end
+
   def create
+    @contents_class = ContentsClass.find(params[:contents_class_id])
     @content = @contents_class.contents.new(content_params)
     @photo = @content.photos.build
     @content.save
@@ -39,7 +45,7 @@ class Admin::ContentsController < BaseController
   private
 
   def set_content
-    @contents_class = @current_site.contents_classes.find(params[:contents_class_id])
+    @contents_class = ContentsClass.find(params[:contents_class_id])
     @content = @contents_class.contents.find(params[:id])
   end
 

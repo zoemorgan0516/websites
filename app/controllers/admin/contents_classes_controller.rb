@@ -11,17 +11,17 @@ class Admin::ContentsClassesController < BaseController
   def create
     @contents_class = @current_site.contents_classes.new(contents_class_params)
     @contents_class.save
-    redirect_to admin_contents_classes_path(@site)
+    redirect_to admin_contents_classes_path
   end
 
   def update
     @contents_class.update(contents_class_params)
-    redirect_to admin_contents_classes_path(@site)
+    redirect_to admin_contents_classes_path
   end
 
   def destroy
     @contents_class.destroy
-    redirect_to admin_contents_classes_path(@site)
+    redirect_to admin_contents_classes_path
   end
 
   private
