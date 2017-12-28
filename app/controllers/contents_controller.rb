@@ -11,8 +11,8 @@ class ContentsController < FrontBaseController
 
   private
 
-    def set_content
-      @content = Content.find(params[:id])
-    end
+  def set_content
+    @content = Content.find(params[:id])
+  end
 
 end
