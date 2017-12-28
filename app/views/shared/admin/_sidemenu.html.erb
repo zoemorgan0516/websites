@@ -26,7 +26,7 @@
               </li>
           <% elsif can? :update, Site %>
               <li class="<%= "active" if controller_name == "admin::sites" %>">
-                 <a href="/admin/sites/<%= current_user.site.id %>/edit" class="auto">
+                 <a href="/admin/sites/<%= @current_site.id %>/edit" class="auto">
                   <i class="glyphicon glyphicon-blackboard"></i>
                   <span>站点管理</span>
                 </a>

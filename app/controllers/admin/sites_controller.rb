@@ -11,8 +11,6 @@ class Admin::SitesController < BaseController
   end
 
   def show
-    @categories = @site.categories
-    @footer = @site.footer
   end
 
   def new
