@@ -13,7 +13,7 @@
   <% content_for :script do %>
     <script type="text/javascript">
       $(document).ready(function(){
-        <% @site.photos.all.each do |photo| %>
+        <% @content.photos.all.each do |photo| %>
         $("#<%= photo.id %>btn").click(function(){
           $("#<%= photo.id %>").hide();
           $("#<%= photo.id %>btn").hide();
