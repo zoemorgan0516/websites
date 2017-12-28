@@ -1,8 +1,5 @@
-class Admin::ContentsController < ApplicationController
-  before_action :authenticate_user!
-  load_and_authorize_resource
-  before_action :set_content, only: [:edit, :update]
-  layout "admin"
+class Admin::ContentsController < BaseController
+  before_action :set_content, only: [:edit, :update, :create, :destroy]
 
   def index
     @contents = Content.where(contents_class_id: params[:contents_class_id]).page params[:page]
@@ -13,8 +10,6 @@ class Admin::ContentsController < ApplicationController
   end
 
   def create
-    @site = current_user.site
-    @contents_class = @site.contents_classes.find(params[:contents_class_id])
     @content = @contents_class.contents.new(content_params)
     @photo = @content.photos.build
     @content.save
@@ -25,8 +20,6 @@ class Admin::ContentsController < ApplicationController
   end
 
   def update
-    @site = current_user.site
-    @contents_class = @site.contents_classes.find(params[:contents_class_id])
     @content = @contents_class.contents.find(params[:id])
     if @content.update(content_params)
        if not params[:photos].blank?
@@ -46,8 +39,7 @@ class Admin::ContentsController < ApplicationController
   private
 
   def set_content
-    @site = current_user.site
-    @contents_class = @site.contents_classes.find(params[:contents_class_id])
+    @contents_class = @current_site.contents_classes.find(params[:contents_class_id])
     @content = @contents_class.contents.find(params[:id])
   end
 

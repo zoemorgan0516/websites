@@ -1,24 +1,18 @@
-class Admin::CategoriesController < ApplicationController
-  before_action :authenticate_user!
-  load_and_authorize_resource
+class Admin::CategoriesController < BaseController
   before_action :set_category, only: [:edit, :update, :destroy]
-  layout "admin"
-
   def index
-    @site = current_user.site
-    @categories = @site.categories
+    @categories = @current_site.categories
   end
 
   def new
-    @category = Category.new
+    @category = @current_site.categories.new
   end
 
   def edit
   end
 
   def create
-    @site = current_user.site
-    @category = @site.categories.new(category_params)
+    @category = @current_site.categories.new(category_params)
     @category.save
     redirect_to admin_categories_path(@site)
   end
@@ -36,8 +30,7 @@ class Admin::CategoriesController < ApplicationController
   private
 
   def set_category
-    @site = current_user.site
-    @category = @site.categories.find(params[:id])
+    @category = @current_site.categories.find(params[:id])
   end
 
   def category_params
