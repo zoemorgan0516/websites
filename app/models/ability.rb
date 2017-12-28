@@ -10,7 +10,6 @@ class Ability
       can [:update, :read], Site
       can [:update, :read], User
       can :manage, Article
-      can :destroy, Comment
       can :manage, Email
       can :manage, Category
       can :manage, ContentsClass
