@@ -34,25 +34,7 @@ class Admin::SitesController < BaseController
   def update
     @site.update(site_params)
     @site.footer.update
-    if @site.update(site_params)
-       if not params[:photos].blank?
-         params[:photos]['avatar'].each do |i|
-           @photo = @site.photos.create!(:avatar => i)
-         end
-       end
-
-       if not params[:advantage_pics].blank?
-         params[:advantage_pics]['avatar'].each do |i|
-           @photo = @site.advantage_pics.create!(:avatar => i)
-         end
-       end
-
-       if not params[:cooperation_pics].blank?
-         params[:cooperation_pics]['avatar'].each do |i|
-           @photo = @site.cooperation_pics.create!(:avatar => i)
-         end
-       end
-    end
+    @site.update(site_params)
     redirect_to admin_sites_path
   end
 
