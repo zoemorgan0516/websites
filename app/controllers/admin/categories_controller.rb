@@ -14,17 +14,17 @@ class Admin::CategoriesController < BaseController
   def create
     @category = @current_site.categories.new(category_params)
     @category.save
-    redirect_to admin_categories_path(@site)
+    redirect_to admin_categories_path
   end
 
   def update
     @category.update(category_params)
-    redirect_to admin_categories_path(@site)
+    redirect_to admin_categories_path
   end
 
   def destroy
     @category.destroy
-    redirect_to admin_categories_path(@site)
+    redirect_to admin_categories_path
   end
 
   private
