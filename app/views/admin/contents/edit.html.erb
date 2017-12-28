@@ -8,11 +8,11 @@
         <%= f.input :word,  label: "文字内容"  %>
         <!-- 显示图片,并可删除图片 -->
         <% @content.photos.all.each do |photo| %>
-        <div id="<%= photo.id %>">
-          <img src="<%= photo.avatar_url("666") %>" >
-          <br>
-          <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/photos/<%= photo.id %>/delete" id="<%= photo.id %>btn">删除</a>
-        </div>
+          <div id="<%= photo.id %>">
+            <img src="<%= photo.avatar_url("666") %>" >
+            <br>
+            <a class="btn btn-default btn-xs" rel="nofollow" data-method="delete" href="/admin/photos/<%= photo.id %>/delete" id="<%= photo.id %>btn">删除</a>
+          </div>
         <% end %>
         <!-- 隐藏图片，实现删除后图片自动不见 -->
         <% content_for :script do %>

@@ -13,27 +13,26 @@ class Admin::ContentsController < BaseController
   def new
     @contents_class = ContentsClass.find(params[:contents_class_id])
     @content = @contents_class.contents.new
+    @photo = @content.photos.build
   end
 
   def create
     @contents_class = ContentsClass.find(params[:contents_class_id])
     @content = @contents_class.contents.new(content_params)
-    @photo = @content.photos.build
     @content.save
+    params[:photos]['avatar'].each do |i|
+      @photo = @content.photos.create!(:avatar => i)
+    end
     redirect_to admin_contents_path(contents_class_id: @content.contents_class_id)
-      params[:photos]['avatar'].each do |i|
-        @photo = @content.photos.create!(:avatar => i)
-      end
   end
 
   def update
     @content = @contents_class.contents.find(params[:id])
-    if @content.update(content_params)
-       if not params[:photos].blank?
-         params[:photos]['avatar'].each do |i|
-           @photo = @content.photos.create!(:avatar => i)
-         end
-       end
+    @content.update(content_params)
+    if not params[:photos].blank?
+       params[:photos]['avatar'].each do |i|
+         @photo = @content.photos.create!(:avatar => i)
+       end 
     end
     redirect_to admin_contents_path(contents_class_id: @content.contents_class_id)
   end
