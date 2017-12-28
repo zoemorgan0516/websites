@@ -2,7 +2,8 @@ class Admin::ContentsController < BaseController
   before_action :set_content, only: [:edit, :update, :destroy]
 
   def index
-    @contents = Content.where(contents_class_id: params[:contents_class_id]).page params[:page]
+    @contents_class = ContentsClass.find(params[:contents_class_id])
+    @contents = @contents_class.contents.all.page params[:page]
   end
 
 
