@@ -12,6 +12,9 @@ class Admin::SliderPicturesController < BaseController
   def edit
   end
 
+  def show
+  end
+
 
   def create
     @slider_picture = @current_site.slider_pictures.new(slider_picture_params)

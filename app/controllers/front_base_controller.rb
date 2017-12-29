@@ -7,7 +7,9 @@ class FrontBaseController < ApplicationController
   def set_current_site
     logger.debug request.host
     if Rails.env.development?
-      @current_site = Site.first
+      @current_site = current_user.site
+      #此处代码本应是：@current_site = Site.first
+      #但是，由于Site.first无图片每次都报错，为了本地测试效果查看，此处写为@current_user，因为我们不可能只有一个site站点。
     else
       @current_site = Site.find_by(domain: request.host)
     end

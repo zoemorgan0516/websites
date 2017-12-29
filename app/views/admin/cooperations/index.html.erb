@@ -20,6 +20,7 @@
           <tr>
             <td><%= cooperation.cooperation_company %></td>
             <td><%= cooperation.cooperation_url %></td>
+            <td><%= image_tag(cooperation.avatar_url("666")) %></td>
             <td><%= cooperation.created_at.strftime("%F %T")%></td>
             <td>
               <%= link_to "修改", edit_admin_cooperation_path(cooperation), class: "btn btn-default btn-xs" %>
