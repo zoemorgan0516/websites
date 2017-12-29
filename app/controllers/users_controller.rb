@@ -4,7 +4,7 @@ class UsersController < BaseController
       if current_user.role == "super"
         @users = User.all.page params[:page]
       else
-        @users = User.where(site_id: @current_site.id).page params[:page]
+        @users = current_user
       end
   end
 

@@ -24,8 +24,10 @@
     </table>
   </div>
 
-<footer class="panel-footer">
-  <%= render partial: "shared/admin/paginate", locals: { object: @users } %>
-</footer>
+<% if current_user.role == "super" %>
+  <footer class="panel-footer">
+    <%= render partial: "shared/admin/paginate", locals: { object: @users } %>
+  </footer>
+<% end %>
 
 </div>
