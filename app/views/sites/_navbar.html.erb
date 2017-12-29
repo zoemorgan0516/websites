@@ -9,7 +9,7 @@
       <div class="navBar-site">
         <ul class="nav-site clearfix-site">
           <h4>
-            <% @current_site.categories.each do |category| %>
+            <% @current_site.categories.order(position: :asc).each do |category| %>
               <td><%= link_to category.menu, category.menu_url %>
               |
               </td>
