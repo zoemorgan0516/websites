@@ -2,6 +2,10 @@
   <td><%= category.menu %></td>
   <td><%= category.menu_url %></td>
   <td>
+    <%= link_to("上移", up_admin_category_path(category), method: :post, class: "btn btn-xs btn-primary") %>
+    <%= link_to("下移", down_admin_category_path(category), method: :post, class: "btn btn-xs btn-primary") %>
+    <%= link_to("置顶", top_admin_category_path(category), method: :post, class: "btn btn-xs btn-primary") %>
+    <%= link_to("置底", bottom_admin_category_path(category), method: :post, class: "btn btn-xs btn-primary") %>
     <%= link_to("编辑", edit_admin_category_path(category), class: "btn btn-xs btn-primary")%>|
     <%= link_to("删除", admin_category_path(category), method: :delete, class: "btn btn-xs btn-primary")%>
   </td>

@@ -10,7 +10,14 @@ Rails.application.routes.draw do
 # 后台网站板式组成部分的路径
   namespace :admin do
     resources :sites
-    resources :categories
+    resources :categories do
+      member do
+        post "up"
+        post "down"
+        post "top"
+        post "bottom"
+      end
+    end
     resources :contents_classes
     resources :contents
     resources :slider_pictures
