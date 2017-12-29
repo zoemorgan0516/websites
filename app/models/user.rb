@@ -53,7 +53,7 @@ class User
   end
 
 
-  ## 关联关系
+  # 关联关系
   belongs_to :site
 
 
