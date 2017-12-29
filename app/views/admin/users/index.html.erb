@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     用户列表
-    <% if current_user.role == "super" %>>
+    <% if current_user.role == "super" %>
         <div class="pull-right">
           <%= link_to "新建站点管理员", new_user_path, class: "btn btn-primary btn-xs" %>
         </div>
@@ -24,8 +24,9 @@
     </table>
   </div>
 
-<footer class="panel-footer">
-  <%= render partial: "shared/admin/paginate", locals: { object: @users } %>
-</footer>
+  <footer class="panel-footer">
+    <%= render partial: "shared/admin/paginate", locals: { object: @users } %>
+  </footer>
+
 
 </div>
